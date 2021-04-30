@@ -1,4 +1,6 @@
-// Creating routes for the different endpoints users will hit (i.e. fetches)
+// Creating routes for rendering homepage with user/moderator interactions
+
+// TODO: much of this needs to be edited to fit our project
 
 const router = require('express').Router();
 const { Moderator, User } = require('../models');
