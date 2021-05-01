@@ -59,7 +59,8 @@ router.get('/', async (req, res) => {
   }
 });
 
-router.get('/project/:id', async (req, res) => {
+// route for '/moderator/:id'
+router.get('/moderator/:id', async (req, res) => {
   try {
     const userPostData = await Project.findByPk(req.params.id, {
       include: [
@@ -72,8 +73,8 @@ router.get('/project/:id', async (req, res) => {
 
     const project = userPostData.get({ plain: true });
 
-    res.render('project', {
-      ...project,
+    res.render('moderator', {
+      ...moderator,
       logged_in: req.session.logged_in
     });
   } catch (err) {
@@ -87,7 +88,7 @@ router.get('/profile', withAuth, async (req, res) => {
     // Find the logged in user based on the session ID
     const userData = await User.findByPk(req.session.user_id, {
       attributes: { exclude: ['password'] },
-      include: [{ model: Project }],
+      include: [{ model: Moderator }],
     });
 
     const user = userData.get({ plain: true });

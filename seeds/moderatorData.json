@@ -1,3 +1,26 @@
 [
-  
+ {
+   "name": "Ian",
+   "userName": "",
+    "email": "fake@gmail.com",
+    "password": "password12345"
+ },
+ {
+    "name": "Ellisa",
+    "userName": "",
+    "email": "fake@gmail.com",
+    "password": "password12345"
+ },
+ {
+    "name": "Erick",
+    "userName": "",
+    "email": "fake@gmail.com",
+    "password": "password12345"
+ },
+ {
+    "name": "Jamie",
+    "userName": "",
+    "email": "rip2578@gmail.com",
+    "password": "password12345"
+ }
 ]
