@@ -1,3 +1,4 @@
+
 const router = require('express').Router();
 const { Moderator } = require('../../models');
 const withAuth = require('../../utils/auth');
@@ -38,3 +39,9 @@ router.delete('/:id', withAuth, async (req, res) => {
 });
 
 module.exports = router;
+
+// routing for moderator responses to user messages (does this send to another model that merges user post and moderator response? this seems right to me now), 
+// updating user posts,
+// deleting user posts, 
+// deleting user/response posts on homepage
+// deleting comments

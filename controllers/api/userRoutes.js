@@ -1,3 +1,7 @@
+// routes for creating user session, routes for logging in, and logging out
+
+// TODO: much of this needs to be edited to fit our project
+
 const router = require('express').Router();
 const { User } = require('../../models');
 
