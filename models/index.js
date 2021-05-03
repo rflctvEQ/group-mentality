@@ -10,4 +10,5 @@ Moderator.belongsTo(User, {
   foreignKey: 'userId'
 });
 
+
 module.exports = { User, Moderator };

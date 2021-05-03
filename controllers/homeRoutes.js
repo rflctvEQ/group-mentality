@@ -3,14 +3,14 @@
 // TODO: much of this needs to be edited to fit our project
 
 const router = require('express').Router();
-const { Moderator, User, UserPost, ModeratorResponse, Comment } = require('../models');
+const { Moderator, User, ApprovedUserPost, ModeratorResponse, Comment } = require('../models');
 const withAuth = require('../utils/auth');
 
 
 router.get('/', async (req, res) => {
   try {
     // Get all posts and JOIN with user data
-    const userPostData = await UserPost.findAll({
+    const approvedUserPostData = await ApprovedUserPost.findAll({
       include: [
         {
           model: User,
@@ -47,55 +47,12 @@ router.get('/', async (req, res) => {
     });
 
     // Serialize data so the template can read it
-    const posts = userPostData.map((post) => post.get({ plain: true }));
+    const posts = approvedUserPostData.map((post) => post.get({ plain: true }));
 
     // Pass serialized data and session flag into template
     res.render('homepage', { 
       ...posts, 
       logged_in: req.session.logged_in 
-    });
-  } catch (err) {
-    res.status(500).json(err);
-  }
-});
-
-// route for '/moderator/:id'
-router.get('/moderator/:id', async (req, res) => {
-  try {
-    const userPostData = await Project.findByPk(req.params.id, {
-      include: [
-        {
-          model: User,
-          attributes: ['name'],
-        },
-      ],
-    });
-
-    const project = userPostData.get({ plain: true });
-
-    res.render('moderator', {
-      ...moderator,
-      logged_in: req.session.logged_in
-    });
-  } catch (err) {
-    res.status(500).json(err);
-  }
-});
-
-// Use withAuth middleware to prevent access to route
-router.get('/profile', withAuth, async (req, res) => {
-  try {
-    // Find the logged in user based on the session ID
-    const userData = await User.findByPk(req.session.user_id, {
-      attributes: { exclude: ['password'] },
-      include: [{ model: Moderator }],
-    });
-
-    const user = userData.get({ plain: true });
-
-    res.render('profile', {
-      ...user,
-      logged_in: true
     });
   } catch (err) {
     res.status(500).json(err);
