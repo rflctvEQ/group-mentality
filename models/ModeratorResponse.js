@@ -1,14 +1,13 @@
 const { Model, DataTypes } = require('sequelize');
-const bcrypt = require('bcrypt');
 const sequelize = require('../config/connection');
 
-class Userpost extends Model {
-  checkPassword(loginPw) {
+class ModeratorResponse extends Model {
+checkPassword(loginPw) {
     return bcrypt.compareSync(loginPw, this.password);
   }
 }
 
-Userpost.init(
+ModeratorResponse.init(
   {
     id: {
       type: DataTypes.INTEGER,
@@ -16,23 +15,24 @@ Userpost.init(
       primaryKey: true,
       autoIncrement: true,
     },
-    userName: {
-      type: DataTypes.STRING,
-      allowNull: false,
-    },
-    email: {
-      type: DataTypes.STRING,
-      allowNull: false,
-      unique: true,
-      validate: {
-        isEmail: true,
+    title: {
+        type: DataTypes.STRING,
+        allowNull: false,
       },
-    },
-    password: {
+    content: {
       type: DataTypes.STRING,
       allowNull: false,
-      validate: {
-        len: [8, 128],
+    },
+    dateCreated: {
+      type: DataTypes.DATE,
+      allowNull: false,
+      defaultValue: DataTypes.NOW,
+    },
+    userId: {
+        type: DataTypes.INTEGER,
+        references: {
+          model: 'user',
+          key: 'id',
       },
     },
   },
@@ -48,11 +48,11 @@ Userpost.init(
       },
     },
     sequelize,
-    timestamps: false,
+    timestamps: true,
     freezeTableName: true,
     underscored: true,
-    modelName: 'userpost',
+    modelName: 'moderatorresponse',
   }
 );
 
-module.exports = Userpost;
+module.exports = ModeratorResponse;
