@@ -1,1 +1,20 @@
 /* Ellisa's style page  */
+* {
+    background-color:#B8CDD1 ;
+    box-sizing: border-box;
+}
+#home {
+    /* padding: 20px; */
+    /* float: left; */
+    width: 20%;
+}
+#login {
+    /* padding: 20px; */
+    /* float: left; */
+    width: 20%;
+}
+@media screen and (max-width:600px) {
+    * {
+        background-color: #F7E883;
+    }
+}
