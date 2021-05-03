@@ -1,13 +1,64 @@
 const User = require('./User');
 const Moderator = require('./Moderator');
+const Comment = require('./Comment');
+const ModeratorResponse = require('./ModeratorResponse');
+const UserPost = require('./UserPost');
+const ApprovedUserPost = require('./ApprovedUserPost');
 
-User.hasMany(Moderator, {
+UserPost.belongsTo(User, {
   foreignKey: 'userId',
+});
+
+// User have many posts
+User.hasMany(UserPost, {
+  foreignKey: 'userId',
+  onDelete: 'CASCADE',
+});
+
+// Comment belongs to User
+Comment.belongsTo(User, {
+    foreignKey: 'userId',
+});
+  
+// User have many comments
+User.hasMany(Comment, {
+    foreignKey: 'userId',
+    onDelete: 'CASCADE',
+});
+
+// Comment belongs to Post
+Comment.belongsTo(UserPost, {
+    foreignKey: 'postId',
+});
+  
+// Post have many comments
+UserPost.hasMany(Comment, {
+    foreignKey: 'postId',
+    onDelete: 'CASCADE',
+});
+
+Comment.belongsTo(UserPost, {
+  foreignKey: 'postId',
   onDelete: 'CASCADE'
 });
 
-Moderator.belongsTo(User, {
-  foreignKey: 'userId'
+ModeratorResponse.belongsTo(Moderator, {
+  foreignKey: 'moderatorId',
 });
 
-module.exports = { User, Moderator };
+Moderator.hasMany(ModeratorResponse, {
+  foreignKey: 'moderatorId',
+  onDelete: 'CASCADE',
+});
+
+Moderator.hasMany(ApprovedUserPost, {
+  foreignKey: 'moderatorId',
+  onDelete: 'CASCADE',
+});
+
+ApprovedUserPost.belongsTo(Moderator, {
+  foreignKey: 'moderatorId',
+});
+
+
+module.exports = { User, Moderator, Comment, ModeratorResponse, UserPost, ApprovedUserPost };
