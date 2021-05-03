@@ -10,4 +10,7 @@ router.use('/moderator', moderatorRoutes);
 router.use('/post', userPostRoutes);
 router.user('/comment', commentRoutes);
 
+
 module.exports = router;
+        
+
