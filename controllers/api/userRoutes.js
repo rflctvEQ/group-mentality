@@ -1,6 +1,11 @@
+// routes for creating user session, routes for logging in, and logging out
+
+// TODO: much of this needs to be edited to fit our project
+
 const router = require('express').Router();
 const { User } = require('../../models');
 
+// route for '/api/users/'
 router.post('/', async (req, res) => {
   try {
     const userData = await User.create(req.body);
@@ -16,6 +21,7 @@ router.post('/', async (req, res) => {
   }
 });
 
+// route for '/api/users/login'
 router.post('/login', async (req, res) => {
   try {
     const userData = await User.findOne({ where: { email: req.body.email } });
@@ -47,6 +53,8 @@ router.post('/login', async (req, res) => {
     res.status(400).json(err);
   }
 });
+
+// route for '/api/users/logout'
 
 router.post('/logout', (req, res) => {
   if (req.session.logged_in) {

@@ -1,9 +1,9 @@
 const { Model, DataTypes } = require('sequelize');
 const sequelize = require('../config/connection');
 
-class Moderator extends Model {}
+class Comment extends Model {}
 
-Moderator.init(
+Comment.init(
   {
     id: {
       type: DataTypes.INTEGER,
@@ -11,17 +11,14 @@ Moderator.init(
       primaryKey: true,
       autoIncrement: true,
     },
-    userName: {
+    content: {
       type: DataTypes.STRING,
       allowNull: false,
     },
-    email: {
-      type: DataTypes.STRING,
+    dateCreated: {
+      type: DataTypes.DATE,
       allowNull: false,
-      unique: true,
-      validate: {
-        isEmail: true,
-      },
+      defaultValue: DataTypes.NOW,
     },
     userId: {
       type: DataTypes.INTEGER,
@@ -30,11 +27,11 @@ Moderator.init(
         key: 'id',
       },
     },
-    password: {
-      type: DataTypes.STRING,
-      allowNull: false,
-      validate: {
-        len: [8,128],
+    postId: {
+      type: DataTypes.INTEGER,
+      references: {
+        model: 'post',
+        key: 'id',
       },
     },
   },
@@ -43,8 +40,8 @@ Moderator.init(
     timestamps: true,
     freezeTableName: true,
     underscored: true,
-    modelName: 'moderator',
+    modelName: 'comment',
   }
 );
 
-module.exports = Moderator;
+module.exports = Comment;
