@@ -3,72 +3,56 @@
 // TODO: much of this needs to be edited to fit our project
 
 const router = require('express').Router();
-const { Moderator, User } = require('../models');
+const { Moderator, User, ApprovedUserPost, ModeratorResponse, Comment } = require('../models');
 const withAuth = require('../utils/auth');
 
-// route for '/'
+
 router.get('/', async (req, res) => {
   try {
-    // Get all moderators and JOIN with user data
-    const moderatorData = await Moderator.findAll({
+    // Get all posts and JOIN with user data
+    const approvedUserPostData = await ApprovedUserPost.findAll({
       include: [
         {
           model: User,
           attributes: ['name'],
         },
+        {
+          model: ModeratorResponse,
+          // TODO: attributes need to be updated to fit the ModeratorResponse model
+          attributes: ['id', 'content', 'post_id', 'user_id', 'date_created'],
+          include: {
+            model: Moderator,
+            attributes: ['name']
+          }
+        },
+        // * I'm not sure if this is the way to include Comments from both Users and Moderators 
+        // * For the MVP, it might be best if we just allow Users to Comment
+        {
+          model: Comment,
+          attributes: ['name'],
+          include: {
+            model: User, 
+            attributes: ['name']
+          }
+        },
+        {
+          model: Comment,
+          attributes: ['name'],
+          include: {
+            model: Moderator, 
+            attributes: ['name']
+          }
+        }
       ],
     });
 
     // Serialize data so the template can read it
-    constmoderators =moderatorData.map((moderator) =>moderator.get({ plain: true }));
+    const posts = approvedUserPostData.map((post) => post.get({ plain: true }));
 
     // Pass serialized data and session flag into template
     res.render('homepage', { 
-      moderators, 
+      ...posts, 
       logged_in: req.session.logged_in 
-    });
-  } catch (err) {
-    res.status(500).json(err);
-  }
-});
-
-// route for '/moderator/:id'
-router.get('/moderator/:id', async (req, res) => {
-  try {
-    const moderatorData = await Moderator.findByPk(req.params.id, {
-      include: [
-        {
-          model: User,
-          attributes: ['name'],
-        },
-      ],
-    });
-
-    const moderator = moderatorData.get({ plain: true });
-
-    res.render('moderator', {
-      ...moderator,
-      logged_in: req.session.logged_in
-    });
-  } catch (err) {
-    res.status(500).json(err);
-  }
-});
-
-// Use withAuth middleware to prevent access to route
-router.get('/profile', withAuth, async (req, res) => {
-  try {
-    // Find the logged in user based on the session ID
-    const userData = await User.findByPk(req.session.user_id, {
-      attributes: { exclude: ['password'] },
-      include: [{ model: Moderator }],
-    });
-
-    const user = userData.get({ plain: true });
-
-    res.render('profile', {
-      ...user,
-      logged_in: true
     });
   } catch (err) {
     res.status(500).json(err);
