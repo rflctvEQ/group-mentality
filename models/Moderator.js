@@ -23,13 +23,6 @@ Moderator.init(
         isEmail: true,
       },
     },
-    userId: {
-      type: DataTypes.INTEGER,
-      references: {
-        model: 'user',
-        key: 'id',
-      },
-    },
     password: {
       type: DataTypes.STRING,
       allowNull: false,
