@@ -35,7 +35,7 @@ ModeratorResponse.init(
           key: 'id',
       },
     },
-    userpostId: {
+    userPostId: {
       type: DataTypes.INTEGER,
       references: {
         model: 'userPost',

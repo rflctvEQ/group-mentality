@@ -1,0 +1,9 @@
+[
+    {
+        "id": 1,
+        "content": "this is a comment!",
+        "dateCreated": "05/04/2021",
+        "userId": 2,
+        "postId": 1
+    }
+]
