@@ -27,10 +27,10 @@ Comment.init(
         key: 'id',
       },
     },
-    postId: {
+    userPostId: {
       type: DataTypes.INTEGER,
       references: {
-        model: 'post',
+        model: 'userpost',
         key: 'id',
       },
     },
