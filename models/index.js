@@ -69,3 +69,4 @@ UserPost.hasOne(ModeratorResponse, {
 
 
 module.exports = { User, Moderator, Comment, ModeratorResponse, UserPost, ApprovedUserPost };
+
