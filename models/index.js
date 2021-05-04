@@ -1,15 +1,13 @@
-// Update to require and use Moderator instead of Project
-
 const User = require('./User');
-const Project = require('./Project');
+const Moderator = require('./Moderator');
 
-User.hasMany(Project, {
-  foreignKey: 'user_id',
+User.hasMany(Moderator, {
+  foreignKey: 'userId',
   onDelete: 'CASCADE'
 });
 
-Project.belongsTo(User, {
-  foreignKey: 'user_id'
+Moderator.belongsTo(User, {
+  foreignKey: 'userId'
 });
 
-module.exports = { User, Project };
+module.exports = { User, Moderator };
