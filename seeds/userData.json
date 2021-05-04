@@ -1,17 +1,17 @@
 [
   {
-    "name": "",
-    "email": "",
-    "password": ""
+    "name": "Person",
+    "email": "test@test.com",
+    "password": "asdf"
   },
   {
-    "name": "",
-    "email": "",
-    "password": ""
+    "name": "Another",
+    "email": "another@test.com",
+    "password": "asdfqwert"
   },
   {
-    "name": "",
-    "email": "",
-    "password": ""
+    "name": "Yetanother",
+    "email": "anothertest@test.com",
+    "password": "asdfdfgh"
   }
 ]

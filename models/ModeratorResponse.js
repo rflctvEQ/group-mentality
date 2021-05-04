@@ -28,10 +28,11 @@ ModeratorResponse.init(
       allowNull: false,
       defaultValue: DataTypes.NOW,
     },
-    userId: {
+
+    moderatorId: {
         type: DataTypes.INTEGER,
         references: {
-          model: 'user',
+          model: 'moderator',
           key: 'id',
       },
     },

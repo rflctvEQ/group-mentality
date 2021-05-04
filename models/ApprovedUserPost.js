@@ -15,11 +15,13 @@ ApprovedUserPost.init(
       primaryKey: true,
       autoIncrement: true,
     },
-    title: {
+
+    postTitle: {
         type: DataTypes.STRING,
         allowNull: false,
       },
-    content: {
+    postContent: {
+
       type: DataTypes.STRING,
       allowNull: false,
     },
@@ -28,10 +30,20 @@ ApprovedUserPost.init(
       allowNull: false,
       defaultValue: DataTypes.NOW,
     },
-    userId: {
+
+    responseContent: {
+      type: DataTypes.STRING,
+      allowNull: false,
+    },
+    moderatorUserName: {
+      type: DataTypes.STRING,
+      allowNull: false,
+    },
+    moderatorId: {
         type: DataTypes.INTEGER,
         references: {
-          model: 'user',
+          model: 'moderator',
+
           key: 'id',
       },
     },
