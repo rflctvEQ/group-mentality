@@ -16,23 +16,19 @@ Userpost.init(
       primaryKey: true,
       autoIncrement: true,
     },
-    userName: {
+    title: {
       type: DataTypes.STRING,
       allowNull: false,
     },
-    email: {
-      type: DataTypes.STRING,
+    content: {
+      type: DataTypes.TEXT,
       allowNull: false,
-      unique: true,
-      validate: {
-        isEmail: true,
-      },
     },
-    password: {
-      type: DataTypes.STRING,
-      allowNull: false,
-      validate: {
-        len: [8, 128],
+    userId: {
+      type: DataTypes.INTEGER,
+      references: {
+        model: 'user',
+        key: 'id',
       },
     },
   },
@@ -51,7 +47,7 @@ Userpost.init(
     timestamps: false,
     freezeTableName: true,
     underscored: true,
-    modelName: 'userpost',
+    modelName: 'userPost',
   }
 );
 

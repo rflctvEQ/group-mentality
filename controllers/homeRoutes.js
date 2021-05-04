@@ -6,7 +6,7 @@ const router = require('express').Router();
 const { Moderator, User, ApprovedUserPost, ModeratorResponse, Comment } = require('../models');
 const withAuth = require('../utils/auth');
 
-
+// homepage 
 router.get('/', async (req, res) => {
   try {
     // Get all posts and JOIN with user data
@@ -19,10 +19,10 @@ router.get('/', async (req, res) => {
         {
           model: ModeratorResponse,
           // TODO: attributes need to be updated to fit the ModeratorResponse model
-          attributes: ['id', 'content', 'post_id', 'user_id', 'date_created'],
+          attributes: ['id', 'postTitle', 'postContent', 'dateCreated', 'responseContent', 'moderatorUserName', 'moderatorId'],
           include: {
             model: Moderator,
-            attributes: ['name']
+            attributes: ['userName']
           }
         },
         // * I'm not sure if this is the way to include Comments from both Users and Moderators 
