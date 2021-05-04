@@ -5,7 +5,7 @@ let passwordConfirmEl = $('#passwordConfirm');
 let signUpBtnEl = $('#signUpButton');
 let loginBtnEl = $('loginButton');
 let postBtnEl =  $('postButton');
-
+let replyBtnEl = $('replyButton');
 
 
 loginBtnEl.on("click","login", function() {
@@ -26,5 +26,10 @@ signUpBtnEl.on("click", "signUp", function() {
 })
 
 postBtnEl.on("click","postButton", function(){
-    
+
 })
+
+replyBtnEl.on("click", "clickButton", function(){
+
+})
+

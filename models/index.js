@@ -62,3 +62,4 @@ ApprovedUserPost.belongsTo(Moderator, {
 
 
 module.exports = { User, Moderator, Comment, ModeratorResponse, UserPost, ApprovedUserPost };
+

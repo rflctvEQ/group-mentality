@@ -28,6 +28,7 @@ ModeratorResponse.init(
       allowNull: false,
       defaultValue: DataTypes.NOW,
     },
+
     moderatorId: {
         type: DataTypes.INTEGER,
         references: {
