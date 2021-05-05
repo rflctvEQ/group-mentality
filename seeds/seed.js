@@ -9,7 +9,7 @@ const userData = require('./userData.json');
 const moderatorData = require('./moderatorData.json');
 const commentData = require('./commentData.json');
 const moderatorresponseData = require('./moderatorresponseData.json');
-const userpostData = require('./userpostData.json');
+const userPostData = require('./userpostData.json');
 const approveduserpostData = require('./approveduserpostData.json');
 
 const seedDatabase = async () => {
@@ -28,6 +28,12 @@ const seedDatabase = async () => {
     });
   }
 
+  for (const userpost of userPostData) {
+    await UserPost.create({
+      ...userpost,
+    });
+  }
+  
   for (const comment of commentData) {
     await Comment.create({
       ...comment,
@@ -37,12 +43,6 @@ const seedDatabase = async () => {
   for (const moderatorresponse of moderatorresponseData) {
     await ModeratorResponse.create({
       ...moderatorresponse,
-    });
-  }
-
-  for (const userpost of userpostData) {
-    await UserPost.create({
-      ...userpost,
     });
   }
 
