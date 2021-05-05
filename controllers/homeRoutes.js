@@ -1,7 +1,5 @@
 // Creating routes for rendering homepage with user/moderator interactions
 
-// TODO: much of this needs to be edited to fit our project
-
 const router = require('express').Router();
 const { Moderator, User, ApprovedUserPost, ModeratorResponse, Comment } = require('../models');
 const withAuth = require('../utils/auth');
@@ -30,7 +28,7 @@ router.get('/', async (req, res) => {
         // * For the MVP, it might be best if we just allow Users to Comment
         {
           model: Comment,
-          attributes: ['name'],
+          attributes: ['content'],
           include: {
             model: User, 
             attributes: ['name']
@@ -38,7 +36,7 @@ router.get('/', async (req, res) => {
         },
         {
           model: Comment,
-          attributes: ['name'],
+          attributes: ['content'],
           include: {
             model: Moderator, 
             attributes: ['name']

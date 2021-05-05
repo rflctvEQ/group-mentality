@@ -21,12 +21,7 @@ ApprovedUserPost.init(
         allowNull: false,
       },
     postContent: {
-<<<<<<< HEAD
       type: DataTypes.TEXT,
-=======
-
-      type: DataTypes.STRING,
->>>>>>> 30609a41133fc38c4ac2c31e8b0d7b623058e79e
       allowNull: false,
     },
     dateCreated: {
