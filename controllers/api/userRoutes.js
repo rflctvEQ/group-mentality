@@ -3,7 +3,7 @@
 // TODO: much of this needs to be edited to fit our project
 
 const router = require('express').Router();
-const { User } = require('../../models');
+const { User, Moderator } = require('../../models');
 
 // route for '/api/users/'
 router.post('/', async (req, res) => {
@@ -25,21 +25,37 @@ router.post('/', async (req, res) => {
 router.post('/login', async (req, res) => {
   try {
     const userData = await User.findOne({ where: { email: req.body.email } });
+    const moderatorData = await Moderator.findOne({ where: { email: req.body.email }});
 
     if (!userData) {
       res
         .status(400)
-        .json({ message: 'Incorrect email or password, please try again' });
+        .json({ message: 'Incorrect email or password, please try again.' });
       return;
-    }
+    };
+
+    if (!moderatorData) {
+      res
+        .status(400)
+        .json({ message: 'Incorrect email or password, please try again.'})
+      return;
+    };
 
     const validPassword = await userData.checkPassword(req.body.password);
+    const validModeratorPassword = await moderatorData.checkPassword(req.body.password);
 
     if (!validPassword) {
       res
         .status(400)
         .json({ message: 'Incorrect email or password, please try again' });
       return;
+    };
+
+    if (!validModeratorPassword) {
+      res
+        .status(400)
+        .json({ message: 'Incorrect email or password, please try again' });
+        return;
     }
 
     req.session.save(() => {
@@ -48,6 +64,13 @@ router.post('/login', async (req, res) => {
       
       res.json({ user: userData, message: 'You are now logged in!' });
     });
+
+    req.session.save(() => {
+      req.session.user_id = moderatorData.id;
+      req.session.logged_in = true;
+
+      res.json({ user: moderatorData, message: 'You are now logged in!' })
+    })
 
   } catch (err) {
     res.status(400).json(err);
