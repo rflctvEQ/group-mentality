@@ -20,7 +20,7 @@ ApprovedUserPost.init(
         allowNull: false,
     },
     postContent: {
-      type: DataTypes.STRING,
+      type: DataTypes.TEXT,
       allowNull: false,
     },
     dateCreated: {
@@ -29,7 +29,7 @@ ApprovedUserPost.init(
       defaultValue: DataTypes.NOW,
     },
     responseContent: {
-      type: DataTypes.STRING,
+      type: DataTypes.TEXT,
       allowNull: false,
     },
     moderatorUserName: {
@@ -59,7 +59,7 @@ ApprovedUserPost.init(
     timestamps: true,
     freezeTableName: true,
     underscored: true,
-    modelName: 'approveduserpost',
+    modelName: 'approvedUserPost',
   }
 );
 

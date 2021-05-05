@@ -12,9 +12,11 @@ router.get('/moderator', withAuth, async (req, res) => {
     try {
       // Find all pending user posts 
       const userPosts = await UserPost.findAll({
-        // * not yet sure what attributes to include 
-        // attributes: { exclude: ['password'] },
-        // include: [{ model: Moderator }],
+        attributes: ['id', 'title', 'content', 'userId'],
+        include: { 
+          model: User, 
+          attributes: ['id', 'name']
+        },
       });
   
       const post = userPosts.get({ plain: true });
@@ -28,12 +30,27 @@ router.get('/moderator', withAuth, async (req, res) => {
     }
   });
 
-// TODO: create GET for rendering moderator page dedicated to updating and responding to user posts 
-
 router.get('/moderator/:id', withAuth, async (req, res) => {
     try {
-
+    const singleUserPostData = await UserPost.findByPk(req.params.id, {
+      include: [
+        {
+          model: User,
+          attributes: ['name'],
+        }
+      ]
+    });
+    const singleUserPost = singleUserPostData.get({ plain: true });
+    //console.log(blogPost);
+    // debugger
+    // TODO: this will need to match up with the handlebars name 
+    res.render('pendingPostPage', {
+      ...singleUserPost,
+      logged_in: req.session.logged_in
+    });
     } catch (err) {
         res.status(500).json(err);
     };
 });
+
+module.exports = router; 

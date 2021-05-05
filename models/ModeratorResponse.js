@@ -59,7 +59,7 @@ ModeratorResponse.init(
     timestamps: true,
     freezeTableName: true,
     underscored: true,
-    modelName: 'moderatorresponse',
+    modelName: 'moderatorResponse',
   }
 );
 
