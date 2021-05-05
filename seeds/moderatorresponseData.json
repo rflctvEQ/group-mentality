@@ -1,0 +1,10 @@
+[
+    {
+        "id": 1,
+        "title": "response to person",
+        "content": "I am responding to your post!",
+        "dateCreated": "05/03/2021",
+        "moderatorId": 1,
+        "userPostId": 1
+    }
+]

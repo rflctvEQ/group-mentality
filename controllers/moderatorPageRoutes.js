@@ -1,1 +1,56 @@
 // routes for rendering moderator page (i.e. user posts to moderators)
+const router = require('express').Router();
+const { Moderator, User, UserPost, ModeratorResponse, Comment } = require('../models');
+const withAuth = require('../utils/auth');
+
+
+
+// Use withAuth middleware to prevent access to Moderator route
+// TODO: create separate authentication code for Moderators and 
+// TODO: create GET for rendering moderator page with each pending user post 
+router.get('/moderator', withAuth, async (req, res) => {
+    try {
+      // Find all pending user posts 
+      const userPosts = await UserPost.findAll({
+        attributes: ['id', 'title', 'content', 'userId'],
+        include: { 
+          model: User, 
+          attributes: ['id', 'name']
+        },
+      });
+  
+      const post = userPosts.get({ plain: true });
+  
+      res.render('moderatorPage', {
+        ...post,
+        logged_in: true
+      });
+    } catch (err) {
+      res.status(500).json(err);
+    }
+  });
+
+router.get('/moderator/:id', withAuth, async (req, res) => {
+    try {
+    const singleUserPostData = await UserPost.findByPk(req.params.id, {
+      include: [
+        {
+          model: User,
+          attributes: ['name'],
+        }
+      ]
+    });
+    const singleUserPost = singleUserPostData.get({ plain: true });
+    //console.log(blogPost);
+    // debugger
+    // TODO: this will need to match up with the handlebars name 
+    res.render('pendingPostPage', {
+      ...singleUserPost,
+      logged_in: req.session.logged_in
+    });
+    } catch (err) {
+        res.status(500).json(err);
+    };
+});
+
+module.exports = router; 
