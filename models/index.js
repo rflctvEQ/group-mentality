@@ -63,6 +63,7 @@ ApprovedUserPost.belongsTo(Moderator, {
 ModeratorResponse.belongsTo(UserPost, {
   foreignKey: 'userPostID',
 });
+
 UserPost.hasOne(ModeratorResponse, {
   foreignKey: 'userPostId',
 });

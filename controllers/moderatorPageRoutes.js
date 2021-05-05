@@ -8,7 +8,7 @@ const withAuth = require('../utils/auth');
 // Use withAuth middleware to prevent access to Moderator route
 // TODO: create separate authentication code for Moderators and 
 // TODO: create GET for rendering moderator page with each pending user post 
-router.get('/moderator', withAuth, async (req, res) => {
+router.get('/moderator/', withAuth, async (req, res) => {
     try {
       // Find all pending user posts 
       const userPosts = await UserPost.findAll({
