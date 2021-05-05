@@ -15,11 +15,10 @@ ApprovedUserPost.init(
       primaryKey: true,
       autoIncrement: true,
     },
-
     postTitle: {
         type: DataTypes.STRING,
         allowNull: false,
-      },
+    },
     postContent: {
       type: DataTypes.TEXT,
       allowNull: false,
@@ -29,7 +28,6 @@ ApprovedUserPost.init(
       allowNull: false,
       defaultValue: DataTypes.NOW,
     },
-
     responseContent: {
       type: DataTypes.TEXT,
       allowNull: false,
@@ -42,7 +40,6 @@ ApprovedUserPost.init(
         type: DataTypes.INTEGER,
         references: {
           model: 'moderator',
-
           key: 'id',
       },
     },
