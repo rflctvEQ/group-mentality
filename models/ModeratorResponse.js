@@ -1,11 +1,7 @@
 const { Model, DataTypes } = require('sequelize');
 const sequelize = require('../config/connection');
 
-class ModeratorResponse extends Model {
-checkPassword(loginPw) {
-    return bcrypt.compareSync(loginPw, this.password);
-  }
-}
+class ModeratorResponse extends Model {}
 
 ModeratorResponse.init(
   {
@@ -28,7 +24,6 @@ ModeratorResponse.init(
       allowNull: false,
       defaultValue: DataTypes.NOW,
     },
-
     moderatorId: {
         type: DataTypes.INTEGER,
         references: {
@@ -44,17 +39,8 @@ ModeratorResponse.init(
       },
     },
   },
+  
   {
-    hooks: {
-      beforeCreate: async (newUserpostData) => {
-        newUserpostData.password = await bcrypt.hash(newUserpostData.password, 10);
-        return newUserpostData;
-      },
-      beforeUpdate: async (updatedUserpostData) => {
-        updatedUserpostData.password = await bcrypt.hash(updatedUserpostData.password, 10);
-        return updatedUserpostData;
-      },
-    },
     sequelize,
     timestamps: true,
     freezeTableName: true,
