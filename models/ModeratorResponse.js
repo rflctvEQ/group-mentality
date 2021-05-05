@@ -20,7 +20,7 @@ ModeratorResponse.init(
         allowNull: false,
       },
     content: {
-      type: DataTypes.STRING,
+      type: DataTypes.TEXT,
       allowNull: false,
     },
     dateCreated: {
@@ -34,6 +34,13 @@ ModeratorResponse.init(
         references: {
           model: 'moderator',
           key: 'id',
+      },
+    },
+    userPostId: {
+      type: DataTypes.INTEGER,
+      references: {
+        model: 'userPost',
+        key: 'id',
       },
     },
   },

@@ -12,7 +12,7 @@ Comment.init(
       autoIncrement: true,
     },
     content: {
-      type: DataTypes.STRING,
+      type: DataTypes.TEXT,
       allowNull: false,
     },
     dateCreated: {
@@ -27,10 +27,10 @@ Comment.init(
         key: 'id',
       },
     },
-    postId: {
+    userPostId: {
       type: DataTypes.INTEGER,
       references: {
-        model: 'post',
+        model: 'userpost',
         key: 'id',
       },
     },

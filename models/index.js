@@ -60,6 +60,14 @@ ApprovedUserPost.belongsTo(Moderator, {
   foreignKey: 'moderatorId',
 });
 
+ModeratorResponse.belongsTo(UserPost, {
+  foreignKey: 'userPostID',
+});
+
+UserPost.hasOne(ModeratorResponse, {
+  foreignKey: 'userPostId',
+});
+
 
 module.exports = { User, Moderator, Comment, ModeratorResponse, UserPost, ApprovedUserPost };
 

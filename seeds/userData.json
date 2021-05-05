@@ -2,16 +2,16 @@
   {
     "name": "Person",
     "email": "test@test.com",
-    "password": "asdf"
+    "password": "asdfe12345"
   },
   {
     "name": "Another",
     "email": "another@test.com",
-    "password": "asdfqwert"
+    "password": "asdfqwerty"
   },
   {
     "name": "Yetanother",
     "email": "anothertest@test.com",
-    "password": "asdfdfgh"
+    "password": "asdfdfghj"
   }
 ]
