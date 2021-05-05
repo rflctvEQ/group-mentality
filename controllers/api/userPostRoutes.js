@@ -2,41 +2,39 @@
 // NO DELETE FOR USER 
 // deleting should be controlled by moderator
 
-// TODO: some of this needs to be edited to fit our project
-
 const router = require('express').Router();
-const { Project } = require('../../models');
+const { UserPost } = require('../../models');
 const withAuth = require('../../utils/auth');
 
 router.post('/', withAuth, async (req, res) => {
   try {
-    const newProject = await Project.create({
+    const newPost = await UserPost.create({
       ...req.body,
-      user_id: req.session.user_id,
+      userId: req.session.userId,
     });
 
-    res.status(200).json(newProject);
+    res.status(200).json(newPost);
   } catch (err) {
     res.status(400).json(err);
   }
 });
 
-// TODO: can probably cut this
+// TODO: this should be something only Moderators can do (withAuth needs to be changed)
 router.delete('/:id', withAuth, async (req, res) => {
   try {
-    const projectData = await Project.destroy({
+    const newPost = await UserPost.destroy({
       where: {
         id: req.params.id,
-        user_id: req.session.user_id,
+        userId: req.session.userId,
       },
     });
 
-    if (!projectData) {
-      res.status(404).json({ message: 'No project found with this id!' });
+    if (!newPost) {
+      res.status(404).json({ message: 'No post found with this id!' });
       return;
     }
 
-    res.status(200).json(projectData);
+    res.status(200).json(newPost);
   } catch (err) {
     res.status(500).json(err);
   }
