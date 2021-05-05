@@ -17,17 +17,18 @@ Moderator.init(
     },
     email: {
       type: DataTypes.STRING,
+
       allowNull: false,
       unique: true,
       validate: {
         isEmail: true,
       },
     },
-    userId: {
-      type: DataTypes.INTEGER,
-      references: {
-        model: 'user',
-        key: 'id',
+    password: {
+      type: DataTypes.STRING,
+      allowNull: false,
+      validate: {
+        len: [8,128],
       },
     },
     password: {

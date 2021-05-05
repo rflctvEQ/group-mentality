@@ -20,7 +20,7 @@ ModeratorResponse.init(
         allowNull: false,
       },
     content: {
-      type: DataTypes.STRING,
+      type: DataTypes.TEXT,
       allowNull: false,
     },
     dateCreated: {
@@ -28,11 +28,19 @@ ModeratorResponse.init(
       allowNull: false,
       defaultValue: DataTypes.NOW,
     },
-    userId: {
+
+    moderatorId: {
         type: DataTypes.INTEGER,
         references: {
-          model: 'user',
+          model: 'moderator',
           key: 'id',
+      },
+    },
+    userPostId: {
+      type: DataTypes.INTEGER,
+      references: {
+        model: 'userPost',
+        key: 'id',
       },
     },
   },
@@ -51,7 +59,7 @@ ModeratorResponse.init(
     timestamps: true,
     freezeTableName: true,
     underscored: true,
-    modelName: 'moderatorresponse',
+    modelName: 'moderatorResponse',
   }
 );
 

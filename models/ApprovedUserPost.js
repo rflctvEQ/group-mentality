@@ -15,12 +15,12 @@ ApprovedUserPost.init(
       primaryKey: true,
       autoIncrement: true,
     },
-    title: {
+    postTitle: {
         type: DataTypes.STRING,
         allowNull: false,
-      },
-    content: {
-      type: DataTypes.STRING,
+    },
+    postContent: {
+      type: DataTypes.TEXT,
       allowNull: false,
     },
     dateCreated: {
@@ -28,10 +28,18 @@ ApprovedUserPost.init(
       allowNull: false,
       defaultValue: DataTypes.NOW,
     },
-    userId: {
+    responseContent: {
+      type: DataTypes.TEXT,
+      allowNull: false,
+    },
+    moderatorUserName: {
+      type: DataTypes.STRING,
+      allowNull: false,
+    },
+    moderatorId: {
         type: DataTypes.INTEGER,
         references: {
-          model: 'user',
+          model: 'moderator',
           key: 'id',
       },
     },
@@ -51,7 +59,7 @@ ApprovedUserPost.init(
     timestamps: true,
     freezeTableName: true,
     underscored: true,
-    modelName: 'approveduserpost',
+    modelName: 'approvedUserPost',
   }
 );
 
