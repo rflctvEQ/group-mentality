@@ -25,28 +25,27 @@ router.get('/', async (req, res) => {
           }
         },
         // * I'm not sure if this is the way to include Comments from both Users and Moderators 
-        // * For the MVP, it might be best if we just allow Users to Comment
-        {
-          model: Comment,
-          attributes: ['content'],
-          include: {
-            model: User, 
-            attributes: ['name']
-          }
-        },
-        {
-          model: Comment,
-          attributes: ['content'],
-          include: {
-            model: Moderator, 
-            attributes: ['name']
-          }
-        }
+        // * For the MVP, no comments anyway
+        // {
+        //   model: Comment,
+        //   attributes: ['content'],
+        //   include: {
+        //     model: User, 
+        //     attributes: ['name']
+        //   }
+        // },
+        // {
+        //   model: Comment,
+        //   attributes: ['content'],
+        //   include: {
+        //     model: Moderator, 
+        //     attributes: ['name']
+        //   }
+        // }
       ],
     });
 
     // Serialize data so the template can read it
-
     const posts = approvedUserPostData.map((post) => post.get({ plain: true }));
 
     // Pass serialized data and session flag into template

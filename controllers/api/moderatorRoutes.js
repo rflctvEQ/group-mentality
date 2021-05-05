@@ -1,47 +1,88 @@
+//* done for now  
+
 
 const router = require('express').Router();
-const { Moderator } = require('../../models');
+const { Moderator, ApprovedUserPost, UserPost } = require('../../models');
 const withAuth = require('../../utils/auth');
+const { route } = require('./userRoutes');
 
-// route for '/api/moderators/'
-router.post('/', withAuth, async (req, res) => {
+// route for '/api/moderator/'
+// this isn't necessary for MVP
+// router.post('/', withAuth, async (req, res) => {
+//   try {
+//     const newModerator = await Moderator.create({
+//       ...req.body,
+//       user_id: req.session.user_id,
+//     });
+
+//     res.status(200).json(newModerator);
+//   } catch (err) {
+//     res.status(400).json(err);
+//   }
+// });
+
+// route for '/api/moderator/:id'
+// not necessary for MVP
+// router.delete('/:id', withAuth, async (req, res) => {
+//   try {
+//     const moderatorData = await Moderator.destroy({
+//       where: {
+//         id: req.params.id,
+//         user_id: req.session.user_id,
+//       },
+//     });
+
+//     if (!moderatorData) {
+//       res.status(404).json({ message: 'No moderator found with this id!' });
+//       return;
+//     }
+
+//     res.status(200).json(moderatorData);
+//   } catch (err) {
+//     res.status(500).json(err);
+//   }
+// });
+
+
+// routing for creating new ApprovedUserPost
+route.post('/', withAuth, async (req, res) => {
   try {
-    const newModerator = await Moderator.create({
+    const newApprovedUserPost = await ApprovedUserPost.create({
       ...req.body,
-      user_id: req.session.user_id,
+      moderatorId: req.session.moderatorId
     });
 
-    res.status(200).json(newModerator);
+    res.status(200).json(newApprovedUserPost);
   } catch (err) {
     res.status(400).json(err);
-  }
+  };
 });
 
-// route for '/api/moderators/:id'
+// routing for deleting user posts 
 router.delete('/:id', withAuth, async (req, res) => {
   try {
-    const moderatorData = await Moderator.destroy({
+    const userPostData = await UserPost.destroy({
       where: {
         id: req.params.id,
-        user_id: req.session.user_id,
-      },
+        //* i'm not sure if this is correct
+        moderatorId: req.session.moderatorId
+      }
     });
 
-    if (!moderatorData) {
-      res.status(404).json({ message: 'No moderator found with this id!' });
-      return;
-    }
+    if (!userPostData) {
+      res.status(404).json({ message: 'No user post found with this id!' });
+    };
 
-    res.status(200).json(moderatorData);
+    res.status(200).json(userPostData);
   } catch (err) {
     res.status(500).json(err);
-  }
+  };
 });
 
-module.exports = router;
-
-// routing for moderator responses to user messages (does this send to another model that merges user post and moderator response? this seems right to me now), 
-// updating user posts,
-// deleting user posts, 
 // deleting user/response posts on homepage
+// not for MVP
+
 // deleting comments
+// not for MVP
+
+module.exports = router;
