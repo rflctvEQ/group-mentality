@@ -1,8 +1,9 @@
 [
     {
-        "id": 1,
-        "title": "Post",
-        "content": "this is the content of the post",
-        "dateCreated": "03/02/2021"
+        "id": "1",
+        "title": "Work Anxiety",
+        "content": "Hi, my name's Lulu. I deal with stress and anxiety on a daily basis, but I'm feeling especially stressed out at work lately becuase of the workload I'm expected to complete very soon. I'm a software engineer at Random Tech Company, and since it's a good gig, I'm really concerned that if I mention how anxious the job is right now, I might get fired. Am I overthinking this? What should I do?",
+        "dateCreated": "03/02/2021",
+        "userId": "1"
     }
 ]

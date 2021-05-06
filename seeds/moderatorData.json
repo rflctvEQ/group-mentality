@@ -1,26 +1,30 @@
 [
  {
-   "name": "Ian",
-   "userName": "nai",
-    "email": "fake1@gmail.com",
-    "password": "password12345"
+    "id": "12",
+    "name": "Ian",
+    "userName": "nai",
+    "email": "fake12@gmail.com",
+    "password": "password12"
  },
  {
+    "id": "34",
     "name": "Ellisa",
     "userName": "asille",
-    "email": "fake2@gmail.com",
-    "password": "password12345"
+    "email": "fake34@gmail.com",
+    "password": "password34"
  },
  {
+    "id": "56",
     "name": "Erick",
     "userName": "kcire",
-    "email": "fake3@gmail.com",
-    "password": "password12345"
+    "email": "fake56@gmail.com",
+    "password": "password56"
  },
  {
+    "id": "78",
     "name": "Jamie",
     "userName": "eimaj",
-    "email": "rip2578@gmail.com",
-    "password": "password12345"
+    "email": "fake78@gmail.com",
+    "password": "password78"
  }
 ]

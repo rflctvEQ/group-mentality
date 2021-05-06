@@ -1,11 +1,38 @@
 [
     {
-        "id": 1,
-        "postTitle": "Post",
-        "postContent": "this is the content of the post",
+        "id": "1",
+        "postTitle": "Out of Control Depression",
+        "postContent": "I've struggled with depression for most of my life, though I've been good - as good as I can be - about treating it in a healthy manner. However, my dad was recently diagnosed with late-stage cancer, and it's looking like I have a very limited amount of time left with him. For the first time in a long time, I feel incapable of dealing with my depression. What should I do?",
         "dateCreated": "03/02/2021",
-        "responseContent": "I am responding to your post!",
+        "responseContent": "I'm so sorry to hear about your father - that's really tough, even without depression contributing to your experience. My first piece of advice is that you meet with you mental health specialist because they're better equipped to give you the unique advice you need to deal with this situation. However, I feel comfortable telling you that it might be beneficial for you to spend more time with your friends and family - especially your dad. Lean on those that you love, let them help you, and know that you're not alone.",
         "moderatorUserName": "nai",
-        "moderatorId": 1
+        "moderatorId": "12"
+    },
+    {
+        "id": "2",
+        "postTitle": "Confronting My Addiction",
+        "postContent": "This is a post about drug abuse. This is a post about drug abuse. This is a post about drug abuse. This is a post about drug abuse. This is a post about drug abuse. ",
+        "dateCreated": "03/02/2021",
+        "responseContent": "This is a response to a post about drug abuse. This is a response to a post about drug abuse. This is a response to a post about drug abuse. This is a response to a post about drug abuse. This is a response to a post about drug abuse. ",
+        "moderatorUserName": "asille",
+        "moderatorId": "34"
+    },
+    {
+        "id": "3",
+        "postTitle": "Feelings of Meaninglessness",
+        "postContent": "This is a post by someone who feels as though they are living a meaningless existence. This is a post by someone who feels as though they are living a meaningless existence. This is a post by someone who feels as though they are living a meaningless existence. ",
+        "dateCreated": "03/02/2021",
+        "responseContent": "This is a comforting response to someone who feels as though they are living a meaningless existence. This is a comforting response to someone who feels as though they are living a meaningless existence. This is a comforting response to someone who feels as though they are living a meaningless existence. ",
+        "moderatorUserName": "kcire",
+        "moderatorId": "56"
+    },
+    {
+        "id": "4",
+        "postTitle": "Thankful for My Friends",
+        "postContent": "This is a post about someone who is very grateful for the friends she has in her life, and it explains that she was very lonely before she eventually met people she really enjoyed spending her time with. ",
+        "dateCreated": "03/02/2021",
+        "responseContent": "This is a positive response to the user's post about her gratefulness for her friends, and this response encourages others that this could be their experience in time if they are feeling lonely.",
+        "moderatorUserName": "eimaj",
+        "moderatorId": "78"
     }
 ]
