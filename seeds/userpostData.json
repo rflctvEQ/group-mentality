@@ -1,6 +1,6 @@
 [
     {
-        "id": 1,
+        "id": "1",
         "title": "Post",
         "content": "this is the content of the post",
         "dateCreated": "03/02/2021"
