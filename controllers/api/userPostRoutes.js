@@ -6,13 +6,15 @@
 const router = require('express').Router();
 const { UserPost } = require('../../models');
 const withAuth = require('../../utils/auth');
+const modAuth = require('../../utils/modAuth');
 
 //* this one works!
+// creates UserPosts 
 router.post('/', 
 // withAuth, 
 async (req, res) => {
-  console.log('==========');
-  console.log(req.body);
+  // console.log('==========');
+  // console.log(req.body);
 
   try {
     const newPost = await UserPost.create({
@@ -28,8 +30,9 @@ async (req, res) => {
 
 // TODO: this should be something only Moderators can do (withAuth needs to be changed)
 //* but otherwise, this one works!!
+// deletes UserPosts
 router.delete('/:id', 
-// withAuth, 
+// modAuth, 
 async (req, res) => {
   try {
     const newPost = await UserPost.destroy({

@@ -81,7 +81,7 @@ router.post('/login', async (req, res) => {
 });
 
 // route for '/api/users/logout'
-
+//* this works!
 router.post('/logout', (req, res) => {
   if (req.session.logged_in) {
     req.session.destroy(() => {

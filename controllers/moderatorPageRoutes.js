@@ -1,7 +1,7 @@
 // routes for rendering moderator page (i.e. user posts to moderators)
 const router = require('express').Router();
 const { Moderator, User, UserPost, ModeratorResponse, Comment } = require('../models');
-const withAuth = require('../utils/auth');
+const modAuth = require('../utils/modAuth');
 
 
 //! this isn't working and i'm not really sure why
@@ -9,7 +9,7 @@ const withAuth = require('../utils/auth');
 // TODO: create separate authentication code for Moderators and 
 // TODO: create GET for rendering moderator page with each pending user post 
 router.get('/', 
-// withAuth, 
+// modAuth, 
 async (req, res) => {
     try {
       // Find all pending user posts 
@@ -34,7 +34,7 @@ async (req, res) => {
 
 //* this one works (except for the fact that 'pendingPostPage' doesn't exist yet)
 router.get('/:id', 
-// withAuth, 
+// modAuth, 
 async (req, res) => {
     try {
     const singleUserPostData = await UserPost.findByPk(req.params.id, {
