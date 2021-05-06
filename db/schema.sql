@@ -1,2 +1,2 @@
-DROP DATABASE IF EXISTS asdf_db;
-CREATE DATABASE asdf_db;
+DROP DATABASE IF EXISTS mentality_db;
+CREATE DATABASE mentality_db;

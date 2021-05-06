@@ -67,7 +67,7 @@ router.post('/login', async (req, res) => {
 
     req.session.save(() => {
       req.session.user_id = moderatorData.id;
-      req.session.logged_in = true;
+      req.session.logged_in_moderator = true;
 
       res.json({ user: moderatorData, message: 'You are now logged in!' })
     })
