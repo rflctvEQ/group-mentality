@@ -3,6 +3,7 @@
         "id": "1",
         "title": "Post",
         "content": "this is the content of the post",
-        "dateCreated": "03/02/2021"
+        "dateCreated": "03/02/2021",
+        "userId": "1"
     }
 ]

@@ -43,9 +43,9 @@ const { route } = require('./userRoutes');
 //   }
 // });
 
-
+//* this works!
 // routing for creating new ApprovedUserPost
-route.post('/', withAuth, async (req, res) => {
+router.post('/', withAuth, async (req, res) => {
   try {
     const newApprovedUserPost = await ApprovedUserPost.create({
       ...req.body,
@@ -58,19 +58,23 @@ route.post('/', withAuth, async (req, res) => {
   };
 });
 
+//* this works!
 // routing for deleting user posts 
 router.delete('/:id', withAuth, async (req, res) => {
+  console.log('===========');
+  console.log(req);
   try {
     const userPostData = await UserPost.destroy({
       where: {
         id: req.params.id,
         //* i'm not sure if this is correct
-        moderatorId: req.session.moderatorId
+        // moderatorId: req.session.moderatorId
       }
     });
 
     if (!userPostData) {
       res.status(404).json({ message: 'No user post found with this id!' });
+      return;
     };
 
     res.status(200).json(userPostData);

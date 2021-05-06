@@ -4,11 +4,13 @@ const { Moderator, User, UserPost, ModeratorResponse, Comment } = require('../mo
 const withAuth = require('../utils/auth');
 
 
-
+//! this isn't working and i'm not really sure why
 // Use withAuth middleware to prevent access to Moderator route
 // TODO: create separate authentication code for Moderators and 
 // TODO: create GET for rendering moderator page with each pending user post 
-router.get('/moderator/', withAuth, async (req, res) => {
+router.get('/', 
+// withAuth, 
+async (req, res) => {
     try {
       // Find all pending user posts 
       const userPosts = await UserPost.findAll({
@@ -23,14 +25,17 @@ router.get('/moderator/', withAuth, async (req, res) => {
   
       res.render('moderatorPage', {
         ...post,
-        logged_in: true
+        // logged_in: true
       });
     } catch (err) {
       res.status(500).json(err);
     }
   });
 
-router.get('/moderator/:id', withAuth, async (req, res) => {
+//* this one works (except for the fact that 'pendingPostPage' doesn't exist yet)
+router.get('/:id', 
+// withAuth, 
+async (req, res) => {
     try {
     const singleUserPostData = await UserPost.findByPk(req.params.id, {
       include: [
@@ -41,12 +46,11 @@ router.get('/moderator/:id', withAuth, async (req, res) => {
       ]
     });
     const singleUserPost = singleUserPostData.get({ plain: true });
-    //console.log(blogPost);
-    // debugger
+
     // TODO: this will need to match up with the handlebars name 
     res.render('pendingPostPage', {
       ...singleUserPost,
-      logged_in: req.session.logged_in
+      // logged_in: req.session.logged_in
     });
     } catch (err) {
         res.status(500).json(err);

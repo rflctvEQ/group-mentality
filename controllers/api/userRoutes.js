@@ -4,6 +4,7 @@
 const router = require('express').Router();
 const { User, Moderator } = require('../../models');
 
+//* this one works!
 // route for '/api/users/'
 router.post('/', async (req, res) => {
   try {
@@ -20,12 +21,12 @@ router.post('/', async (req, res) => {
   }
 });
 
-//* i'm not sure if this moderator login stuff is going to work
+//* this works except for the moderator stuff that's commented out
 // route for '/api/users/login'
 router.post('/login', async (req, res) => {
   try {
     const userData = await User.findOne({ where: { email: req.body.email } });
-    const moderatorData = await Moderator.findOne({ where: { email: req.body.email }});
+    // const moderatorData = await Moderator.findOne({ where: { email: req.body.email }});
 
     if (!userData) {
       res
@@ -34,15 +35,15 @@ router.post('/login', async (req, res) => {
       return;
     };
 
-    if (!moderatorData) {
-      res
-        .status(400)
-        .json({ message: 'Incorrect email or password, please try again.'})
-      return;
-    };
+    // if (!moderatorData) {
+    //   res
+    //     .status(400)
+    //     .json({ message: 'Incorrect moderator email or password, please try again.'})
+    //   return;
+    // };
 
     const validPassword = await userData.checkPassword(req.body.password);
-    const validModeratorPassword = await moderatorData.checkPassword(req.body.password);
+    // const validModeratorPassword = await moderatorData.checkPassword(req.body.password);
 
     if (!validPassword) {
       res
@@ -51,26 +52,28 @@ router.post('/login', async (req, res) => {
       return;
     };
 
-    if (!validModeratorPassword) {
-      res
-        .status(400)
-        .json({ message: 'Incorrect email or password, please try again' });
-        return;
-    }
+    // if (!validModeratorPassword) {
+    //   res
+    //     .status(400)
+    //     .json({ message: 'Incorrect moderator email or password, please try again' });
+    //     return;
+    // }
 
-    req.session.save(() => {
-      req.session.user_id = userData.id;
-      req.session.logged_in = true;
-      
-      res.json({ user: userData, message: 'You are now logged in!' });
-    });
+    // if (userData) {
+      req.session.save(() => {
+        req.session.user_id = userData.id;
+        req.session.logged_in = true;
+        
+        res.json({ user: userData, message: 'You are now logged in!' });
+      });
+    // };
 
-    req.session.save(() => {
-      req.session.user_id = moderatorData.id;
-      req.session.logged_in_moderator = true;
+    //   req.session.save(() => {
+    //     req.session.user_id = moderatorData.id;
+    //     req.session.logged_in_moderator = true;
 
-      res.json({ user: moderatorData, message: 'You are now logged in!' })
-    })
+    //     res.json({ user: moderatorData, message: 'Welcome, moderator. You are now logged in!' })
+    //   });
 
   } catch (err) {
     res.status(400).json(err);
