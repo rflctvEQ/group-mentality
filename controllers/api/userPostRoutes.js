@@ -7,11 +7,17 @@ const router = require('express').Router();
 const { UserPost } = require('../../models');
 const withAuth = require('../../utils/auth');
 
-router.post('/', withAuth, async (req, res) => {
+//* this one works!
+router.post('/', 
+// withAuth, 
+async (req, res) => {
+  console.log('==========');
+  console.log(req.body);
+
   try {
     const newPost = await UserPost.create({
       ...req.body,
-      userId: req.session.userId,
+      // userId: req.session.userId,
     });
 
     res.status(200).json(newPost);
@@ -21,12 +27,15 @@ router.post('/', withAuth, async (req, res) => {
 });
 
 // TODO: this should be something only Moderators can do (withAuth needs to be changed)
-router.delete('/:id', withAuth, async (req, res) => {
+//* but otherwise, this one works!!
+router.delete('/:id', 
+// withAuth, 
+async (req, res) => {
   try {
     const newPost = await UserPost.destroy({
       where: {
         id: req.params.id,
-        userId: req.session.userId,
+        // userId: req.session.userId,
       },
     });
 
