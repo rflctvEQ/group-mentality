@@ -1,38 +1,38 @@
 [
     {
-        "id": 12,
+        "id": "12",
         "postTitle": "Post",
         "postContent": "this is the content of the post",
         "dateCreated": "03/02/2021",
         "responseContent": "I am responding to your post!",
         "moderatorUserName": "nai",
-        "moderatorId": 12
+        "moderatorId": "12"
     },
     {
-        "id": 34,
+        "id": "34",
         "postTitle": "Post",
         "postContent": "this is the content of the post",
         "dateCreated": "03/02/2021",
         "responseContent": "I am responding to your post!",
         "moderatorUserName": "asille",
-        "moderatorId": 34
+        "moderatorId": "34"
     },
     {
-        "id": 56,
+        "id": "56",
         "postTitle": "Post",
         "postContent": "this is the content of the post",
         "dateCreated": "03/02/2021",
         "responseContent": "I am responding to your post!",
         "moderatorUserName": "kcire",
-        "moderatorId": 56
+        "moderatorId": "56"
     },
     {
-        "id": 78,
+        "id": "78",
         "postTitle": "Post",
         "postContent": "this is the content of the post",
         "dateCreated": "03/02/2021",
         "responseContent": "I am responding to your post!",
         "moderatorUserName": "eimaj",
-        "moderatorId": 78
+        "moderatorId": "78"
     }
 ]
