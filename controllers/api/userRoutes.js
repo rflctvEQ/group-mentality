@@ -1,6 +1,5 @@
 // routes for creating user session, routes for logging in, and logging out
-
-// TODO: much of this needs to be edited to fit our project
+//* done for now
 
 const router = require('express').Router();
 const { User, Moderator } = require('../../models');
@@ -21,6 +20,7 @@ router.post('/', async (req, res) => {
   }
 });
 
+//* i'm not sure if this moderator login stuff is going to work
 // route for '/api/users/login'
 router.post('/login', async (req, res) => {
   try {

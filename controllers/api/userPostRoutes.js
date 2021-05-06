@@ -1,6 +1,7 @@
 // routing for users creating posts for moderator review, 
 // NO DELETE FOR USER 
 // deleting should be controlled by moderator
+//* done for now
 
 const router = require('express').Router();
 const { UserPost } = require('../../models');
