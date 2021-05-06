@@ -60,6 +60,40 @@ router.post('/', modAuth, async (req, res) => {
   };
 });
 
+//* this works (i think?)
+// route for '/api/users/login'
+router.post('/login', async (req, res) => {
+  try {
+    const moderatorData = await Moderator.findOne({ where: { email: req.body.email }});
+
+    if (!moderatorData) {
+      res
+        .status(400)
+        .json({ message: 'Incorrect moderator email or password, please try again.'})
+      return;
+    };
+
+    const validModeratorPassword = await moderatorData.checkPassword(req.body.password);
+
+    if (!validModeratorPassword) {
+      res
+        .status(400)
+        .json({ message: 'Incorrect moderator email or password, please try again' });
+        return;
+    }
+
+      req.session.save(() => {
+        req.session.moderatorId = moderatorData.id;
+        req.session.logged_in = true;
+        
+        res.json({ moderator: moderatorData, message: 'Welcome, moderator. You are now logged in!' });
+      });
+
+  } catch (err) {
+    res.status(400).json(err);
+  }
+});
+
 //* this works!
 // routing for deleting user posts 
 router.delete('/:id', modAuth, async (req, res) => {
