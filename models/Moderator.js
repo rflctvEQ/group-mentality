@@ -16,6 +16,10 @@ Moderator.init(
       primaryKey: true,
       autoIncrement: true,
     },
+    name: {
+      type: DataTypes.STRING,
+      allowNull: false,
+    },
     userName: {
       type: DataTypes.STRING,
       allowNull: false,
@@ -32,7 +36,7 @@ Moderator.init(
       type: DataTypes.STRING,
       allowNull: false,
       validate: {
-        len: [8,128],
+        len: [8, 128],
       },
     },
   },
