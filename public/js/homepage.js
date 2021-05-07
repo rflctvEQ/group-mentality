@@ -1,9 +1,11 @@
+// TODO: render moderator home button only if moderator authentication
 
+// app functionality -- Erick's stuff
 newUserPost = async (event) => {
     event.preventDefault();
 
-    const title = document.querySelector('#').value.trim();
-    const content = document.querySelector('#').value.trim();
+    const title = document.querySelector('#postTitle').value.trim();
+    const content = document.querySelector('#postContent').value.trim();
 
     if (title && content) {
         const response = await fetch('/api/post', {
@@ -18,9 +20,10 @@ newUserPost = async (event) => {
             alert('You did it! One of our trusted mental health experts will review your post shortly. If approved for the site, your message will be responded to and posted to the main forum!')
             document.location.reload();
         } else {
-            alert('Failed to send post to moderators')
-        }
-    }
-}
+            alert('You must be logged in to create posts.')
+            document.location.replace('/login');
+        };
+    };
+};
 
 document.querySelector('.send-post-btn').addEventListener('click', newUserPost);
