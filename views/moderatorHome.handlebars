@@ -1,13 +1,19 @@
+<div>
+    <div>
+        <div style="text-align:center; text-decoration:underline; font-size:20px;">
+        <dt>
+	        <span id="caption_subject">Moderator: User posts to review:</span>
+        </dt>
+    </div>
+</div>
+
 {{#each post as |post|}}
 <a href="/moderator/{{post.id}}">
-    <div>
-    <div>
-        <h3 class="postTitle">{{post.title}}</h3>
-    </div>
-    <div>
-        <h3 class="userId">{{post.userId}}</h3>
-    </div>
-    </div>
+    <br><div>
+        <div style="text-align:center;">
+            <h3 class="postTitle">User Post: {{post.title}} - <h4="userId">User ID: {{post.userId}}</h4>
+        </div>
+    </div></br>
 </a>
 {{/each}}
 
