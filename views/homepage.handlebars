@@ -1,5 +1,4 @@
-
-<div>
+<div class="user-form">
     <div style="text-align:center; text-decoration:underline; padding-right:32em;">
       <dt>
 	    <span id="caption_subject">Post Topic:</span>
@@ -25,12 +24,12 @@
     </div>
 
     <div style="text-align:center; margin-top:5px; margin-bottom:5px; padding-right:29.5em;">
-        <button type="submit" class="btn btn-primary"> Post Message </button> 
+        <button type="submit" class="btn btn-primary send-post-btn"> Post Message </button> 
     </div>
 </div>
 
 {{#each posts as |post|}}
-<div class="card" style="width: vw -50px; ;">
+<div class="card approved-user-post" style="width: vw -50px; ;">
 
     <div class="card-body">
         <h3 class="card-title">{{post.postTitle}}</h3>
@@ -52,4 +51,5 @@
 
 <a href="#" class="btn btn-sticky">Back to top</a>
 
+<script src="/gsap/gsap.min.js"></script>
 <script src="/js/homepage.js"></script>

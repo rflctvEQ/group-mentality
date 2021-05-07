@@ -27,3 +27,20 @@ newUserPost = async (event) => {
 };
 
 document.querySelector('.send-post-btn').addEventListener('click', newUserPost);
+
+// gsap animation for .custom-jumbo
+// gsap.registerPlugin(ScrollTrigger);
+gsap.defaults({ease: 'none', duration: 2});
+
+gsap.from(".header-effect", {
+    duration: 1,
+    x: -350,
+    ease: "back"
+})
+
+gsap.from(".user-form", {
+  duration: 1.5, 
+  opacity: 0, 
+  scale: 0.99,
+  delay: .75
+});
