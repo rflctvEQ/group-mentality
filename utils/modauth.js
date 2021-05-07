@@ -1,10 +1,20 @@
-const withAuth = (req, res, next) => {
-  // If the user is not logged in, redirect the request to the login route
-  if (!req.session.logged_in_moderator) {
-    res.redirect('/login');
-  } else {
-      next();
-  }
+const { Moderator } = require('../models')
+
+const modAuth = (req, res, next) => {
+  // If the user is not a moderator, redirect the request to the login route
+  Moderator.findById(req.session.id).exec(function (err, moderator) {
+    if (err) {
+      return next(err);
+    } else {
+      if (moderator === null) {
+        let err = new Error('Not authorized!');
+        err.status = 400;
+        return next(err);
+      } else {
+        return next();
+      };
+    };
+  });
 };
   
-module.exports = withAuth;
+module.exports = modAuth;

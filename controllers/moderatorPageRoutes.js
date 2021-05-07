@@ -1,7 +1,7 @@
 // routes for rendering moderator page (i.e. user posts to moderators)
 const router = require('express').Router();
 const { Moderator, User, UserPost, ModeratorResponse, Comment } = require('../models');
-const withAuth = require('../utils/auth');
+const modAuth = require('../utils/modAuth');
 
 
 //! this isn't working and i'm not really sure why
@@ -9,7 +9,7 @@ const withAuth = require('../utils/auth');
 // TODO: create separate authentication code for Moderators and 
 // TODO: create GET for rendering moderator page with each pending user post 
 router.get('/', 
-// withAuth, 
+// modAuth, 
 async (req, res) => {
     try {
       // Find all pending user posts 
@@ -21,20 +21,24 @@ async (req, res) => {
         },
       });
   
-      const post = userPosts.get({ plain: true });
+      const post = userPosts.map((userPost) => userPost.get({ plain: true }))
+
+      console.log('===============')
+      console.log(post);
   
-      res.render('moderatorPage', {
-        ...post,
+      res.render('moderatorHome', {
+        post,
         // logged_in: true
       });
     } catch (err) {
+      console.log(err);
       res.status(500).json(err);
     }
   });
 
 //* this one works (except for the fact that 'pendingPostPage' doesn't exist yet)
 router.get('/:id', 
-// withAuth, 
+// modAuth, 
 async (req, res) => {
     try {
     const singleUserPostData = await UserPost.findByPk(req.params.id, {
@@ -48,8 +52,8 @@ async (req, res) => {
     const singleUserPost = singleUserPostData.get({ plain: true });
 
     // TODO: this will need to match up with the handlebars name 
-    res.render('pendingPostPage', {
-      ...singleUserPost,
+    res.render('moderatorResponsePage', {
+      singleUserPost,
       // logged_in: req.session.logged_in
     });
     } catch (err) {

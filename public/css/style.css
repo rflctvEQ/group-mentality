@@ -22,4 +22,15 @@
     font-size: large;
     position: sticky;
     }
+#textarea {
+    background-color: aliceblue;
+    border: black;
+}
+@media  screen and (max-width:600px) {
+    textarea {
+        background-color:cornflowerblue;
+        box-sizing: content-box;
+        size: 100px;
+    }
+}
 }
