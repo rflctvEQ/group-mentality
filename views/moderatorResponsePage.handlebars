@@ -1,12 +1,25 @@
+<<<<<<< HEAD
 <div>
     <textbox id="anonymous" style="background-color:powderblue;">
         <input id="postTitle" row="auto" col="50" value="{{singleUserPost.title}}"></input>
         <textarea id="postContent">{{singleUserPost.content}}</textarea>
     </textbox>
 
+=======
+<div class="container">
+    <div class="column w-100">
+        <textbox id="anonymous" style="background-color:powderblue;">
+            <input id="postTitle" row="auto" col="50" value="SUBJECT: {{singleUserPost.title}}"></input>
+            <textarea id="postContent">{{singleUserPost.content}}</textarea>
+        </textbox>
+    </div>
+    <div class="column">
+>>>>>>> 6df723829ee7b0a8e6dbff22e5ee1cdd1400a23b
     <textarea id="responseContent" rows="20" cols="230" style="background-color: aliceblue;"
         placeholder="Type Moderator Response" type="text"></textarea>
     <input type="submit" id="newApprovedUserPostSubmit" data-id="{{singleUserPost.id}}">
+    <button type="submit" class="btn btn-primary">Delete</button>
+    </div>
 </div>
 
 <script src="/js/moderator.js"></script>
