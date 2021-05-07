@@ -48,14 +48,19 @@ const { route } = require('./userRoutes');
 //* this works!
 // routing for creating new ApprovedUserPost
 router.post('/', modAuth, async (req, res) => {
+  console.log('=====================')
+  console.log(req.body);
   try {
     const newApprovedUserPost = await ApprovedUserPost.create({
-      ...req.body,
+      postTitle: req.body.postTitle,
+      postContent: req.body.postContent,
+      responseContent: req.body.responseContent,
       moderatorId: req.session.moderatorId
     });
 
     res.status(200).json(newApprovedUserPost);
   } catch (err) {
+    console.log(err);
     res.status(400).json(err);
   };
 });
@@ -85,6 +90,7 @@ router.post('/login', async (req, res) => {
       req.session.save(() => {
         req.session.moderatorId = moderatorData.id;
         req.session.logged_in = true;
+        req.session.logged_in_moderator = true;
         
         res.json({ moderator: moderatorData, message: 'Welcome, moderator. You are now logged in!' });
       });

@@ -28,17 +28,16 @@ ApprovedUserPost.init(
       type: DataTypes.TEXT,
       allowNull: false,
     },
-    moderatorUserName: {
-      type: DataTypes.STRING,
-      allowNull: false,
-    },
-    moderatorId: {
-        type: DataTypes.INTEGER,
-        references: {
-          model: 'moderator',
-          key: 'id',
-      },
-    },
+    // moderatorUserName: {
+    //   type: DataTypes.STRING
+    // },
+    // moderatorId: {
+    //     type: DataTypes.INTEGER,
+    //     references: {
+    //       model: 'moderator',
+    //       key: 'id',
+    //   },
+    // },
   },
   
   {
