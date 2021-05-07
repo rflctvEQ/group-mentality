@@ -3,6 +3,9 @@
     background-color: #B8CDD1 ;
     box-sizing: border-box;
 }
+#jumbotron {
+    font-family: 'Permanent Marker', cursive
+} 
 #home {
     /* padding: 20px; */
     /* float: left; */
