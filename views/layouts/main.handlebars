@@ -1,48 +1,75 @@
-{{!-- This is the actual HTML file that all other handlebars files will be passed into --}}
-
 <!DOCTYPE html>
+
 <html lang="en">
 
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>
-    <!-- ! NEED TITLE --> 
-  </title>
-  <link rel="stylesheet" href="/css/jass.css">
-  <link rel="stylesheet" href="/css/style.css">
-</head>
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" type="text/css" href="./css/style.css" />
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/css/bootstrap.min.css" integrity="sha384-B0vP5xmATw1+K9KRQjQERJvTumQW0nPEzvF6L/Z6nronJ3oUOFUFpCjEUQouq2+l" crossorigin="anonymous">
+        <title>Welcome to Group Mentality</title>
+    </head>
 
-<body>
-  <div class="flex-column justify-space-around">
-    <header class="display-flex justify-space-between align-center p-2">
-      <h1>
-        <span role="img" aria-label="money">💸</span>
-        <a href="/">Fund My Project!</a>
-      </h1>
-      <nav>
-        <!-- Conditionally render login or logout links -->
-        {{#if logged_in}}
-        <a href="/profile">profile</a> |
-        <button class="no-button" id="logout">logout</button>
-        {{else}}
-        <a href="/login">login</a>
-        {{/if}}
-      </nav>
+    <body>
+
+    <header>
+        <nav class="navbar navbar-expand-lg navbar-light bg-light">
+            <a class="navbar-brand" href="#"></a>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+              <span class="navbar-toggler-icon"></span>
+            </button>
+          
+            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+              <ul class="navbar-nav mr-auto">
+                <li class="nav-item active">
+                  <a class="nav-link" href="/">Home <span class="sr-only">(current)</span></a>
+                </li>
+                <li class="nav-item">
+                  {{#if logged_in}}
+                  <a class="nav-link" id="logout" href="">Logout <span class="sr-only">(current)</span></a>
+                  {{else}}
+                  <a href="/login" class="nav-link">Login <span class="sr-only">(current)</span></a>
+                  {{/if}}
+                </li>
+                <li class="nav-item dropdown">
+                  <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                    Resources
+                  </a>
+                  <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                    <a class="dropdown-item" href="https://suicidepreventionlifeline.org/">Suicide Prevention</a>
+                    <a class="dropdown-item" href="https://www.thetrevorproject.org/?gclid=Cj0KCQjw4cOEBhDMARIsAA3XDRghSDJe72G2eFV2dFmhkBqm2JFxPa_kX0_q8w1SEJ78pQFkQjjHBAAaAqsrEALw_wcB">LGBTQ</a>
+                    <a class="dropdown-item" href="https://www.veteranscrisisline.net/">Veterans</a>
+                    <a class="dropdown-item" href="https://www.samhsa.gov/find-help/national-helpline">Grieving</a>
+                    <a class="dropdown-item" href="https://www.niaaa.nih.gov/">Substance Abuse</a>
+                  </div>
+                </li>
+                </li>
+              </ul>
+              {{!-- <form class="form-inline my-2 my-lg-0">
+                <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
+                <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
+              </form> --}}
+            </div>
+       </nav>     
+    
+    <div class="container vw-100">
+      <div class="jumbotron">
+        <h1>Group Mentality</h1>
+            <p>A different kind of social media with your head in mind.
+              An advice column with some extra support.
+            </p>
+        </div>
+      </div> 
+      <div class="card" style="width: vw -50px; ;">    
     </header>
-    <main class="container container-fluid mt-5">
-      <!-- EITHER HOMEPAGE, MODERATOR PAGE, OR LOGIN PAGE PASSED BELOW -->
-      {{{ body }}}
-    </main>
-    <footer>
-      
-    </footer>
-  </div>
-
-  <!-- Render script for logged in users only -->
-  {{#if logged_in}}
-  <script src="/js/logout.js"></script>
-  {{/if}}
-</body>
-
+    <main>
+        {{{ body }}}
+    </main>    
+        {{#if logged_in}}
+        <script src="/js/logout.js"></script>
+        {{/if}}
+        <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-Piv4xVNRyMGpqkS2by6br4gNJ7DXjqk09RmUpJ8jgGtD7zP9yug3goQfGII0yAns" crossorigin="anonymous"></script>
+    </body>
 </html>

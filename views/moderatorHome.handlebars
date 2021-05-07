@@ -1,0 +1,14 @@
+{{#each post as |post|}}
+<a href="/moderator/{{post.id}}">
+    <div>
+    <div>
+        <h3 class="postTitle">{{post.title}}</h3>
+    </div>
+    <div>
+        <h3 class="userId">{{post.userId}}</h3>
+    </div>
+    </div>
+</a>
+{{/each}}
+
+<script src="/js/moderator.js"></script>

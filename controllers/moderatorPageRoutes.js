@@ -21,13 +21,17 @@ async (req, res) => {
         },
       });
   
-      const post = userPosts.get({ plain: true });
+      const post = userPosts.map((userPost) => userPost.get({ plain: true }))
+
+      console.log('===============')
+      console.log(post);
   
-      res.render('moderatorPage', {
-        ...post,
+      res.render('moderatorHome', {
+        post,
         // logged_in: true
       });
     } catch (err) {
+      console.log(err);
       res.status(500).json(err);
     }
   });
@@ -48,8 +52,8 @@ async (req, res) => {
     const singleUserPost = singleUserPostData.get({ plain: true });
 
     // TODO: this will need to match up with the handlebars name 
-    res.render('pendingPostPage', {
-      ...singleUserPost,
+    res.render('moderatorResponsePage', {
+      singleUserPost,
       // logged_in: req.session.logged_in
     });
     } catch (err) {
