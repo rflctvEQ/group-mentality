@@ -3,37 +3,42 @@
     background-color: #B8CDD1 ;
     box-sizing: border-box;
 }
+
 #jumbotron {
     font-family: 'Permanent Marker', cursive
 } 
+
 #home {
     /* padding: 20px; */
     /* float: left; */
     width: 20%;
 }
+
 #login {
     /* padding: 20px; */
     /* float: left; */
     width: 20%;
 }
+
 @media screen and (max-width:600px) {
     * {
         background-color:#F7E883;
     }
-#btn-sticky {
-    background-color: #F7E883;
-    font-size: large;
-    position: sticky;
+
+    #btn-sticky {
+        background-color: #F7E883;
+        font-size: large;
+        position: sticky;
     }
-#textarea {
+
+    #textarea {
     background-color: aliceblue;
     border: black;
-}
-@media  screen and (max-width:600px) {
+    }
+
     textarea {
         background-color:cornflowerblue;
         box-sizing: content-box;
         size: 100px;
     }
-}
 }

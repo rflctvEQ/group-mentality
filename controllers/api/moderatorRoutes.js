@@ -121,6 +121,8 @@ router.delete('/:id', modAuth, async (req, res) => {
 
     res.status(200).json(userPostData);
   } catch (err) {
+    console.log('======== ERROR ===========');
+    console.log(err);
     res.status(500).json(err);
   };
 });
