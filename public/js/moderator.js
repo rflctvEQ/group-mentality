@@ -75,8 +75,18 @@ deleteUserPost = async (event) => {
     console.log('delete button clicked')
 };
 
+const deleteBehavior = () => {
+    alert("User's post successfully deleted.");
+    document.location.replace('/moderator');
+}
+
+// when "submit" button clicked: 
 document.querySelector('#newApprovedUserPostSubmit').addEventListener('click', deleteUserPost);
 document.querySelector('#newApprovedUserPostSubmit').addEventListener('click', newApprovedUserPost);
+
+//when "delete" button clicked: 
+document.querySelector('#deleteBtn').addEventListener('click', deleteUserPost);
+document.querySelector('#deleteBtn').addEventListener('click', deleteBehavior);
 
 if (document.querySelector('.user-post-list')) {
     document.querySelector('.open-btn').addEventListener('click', getSingleUserPost);
