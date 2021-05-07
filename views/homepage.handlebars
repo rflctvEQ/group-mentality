@@ -1,13 +1,32 @@
 
 <div>
-    <textbox id="anonymous" span contenteditable="true" style="border solid 1px black; min-width:400px; min-height:100px;">
-        <input id="postTitle" value="SUBJECT: "></input>
-        {{!-- <textarea id="placehoder: Type Post">Type Post</textarea> --}}
-    </textbox>
+    <div style="text-align:center; text-decoration:underline; padding-right:32em;">
+      <dt>
+	    <span id="caption_subject">Post Topic:</span>
+      </dt>
+    </div>
 
-    <textarea id="postContent" span contenteditable="true" style="display: inline-block; border solid 1px black; min-width:600px; min-height:200px; background-color: aliceblue;"
-        placeholder="Type Post" type="text"></textarea>
-    <input type="submit" class="send-post-btn">
+    <div style="padding-right: 15.5em;">
+        <textarea id="postTitle" span contenteditable="true" style="border solid 1px black; width:350px; min-width:350px; height:30px; min-height:30px; background-color: aliceblue; margin:auto; display:block;"
+            placeholder="Topic Title" type="text"></textarea>
+    </div>
+    {{!-- <textarea id="placehoder: Type Post">Type Post</textarea> --}} 
+
+  <div>
+    <div style="text-align:center; text-decoration:underline; padding-right:30.5em;">
+      <dt>
+	    <span id="caption_subject">Post Message:</span>
+      </dt>
+    </div>
+
+    <div>
+    <textarea id="postContent" span contenteditable="true" style="border solid 1px black; min-width:600px; min-height:200px; background-color: aliceblue; margin:auto; display:block;"
+        placeholder="Type Message" type="text"></textarea>
+    </div>
+
+    <div style="text-align:center; margin-top:5px; margin-bottom:5px; padding-right:29.5em;">
+        <button type="submit" class="btn btn-primary"> Post Message </button> 
+    </div>
 </div>
 
 {{#each posts as |post|}}

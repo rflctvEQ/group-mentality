@@ -1,7 +1,5 @@
-// this file creates our database 
-// this shouldn't be edited too much; only to work well with other seed files 
+// This file creates our database and seed files
 
-// Anywhere where it says "Project", we'll likely want to update it to say "Moderator" 
 const sequelize = require('../config/connection');
 const { User, Moderator, Comment, ModeratorResponse, UserPost, ApprovedUserPost } = require('../models');
 

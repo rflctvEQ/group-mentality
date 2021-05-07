@@ -1,6 +1,6 @@
 # README-Group Mentaility
 
-![Dashboard Image]()
+![Dashboard Image](screenshot\homepage-screenshot.jpg)
 > [README Group Mentality]()
 ---
 ### Table of Contents
@@ -13,7 +13,7 @@
 
 ---
 ## Description
-Project 2 brings our team to create a social media board called Group Mentality. As just as it sounds it's for individuals to come and meet as a group and discuss issues that they may be having in their personal lives. There are also website for indivuals to visit if they feel that they cannot relate to any of the issues being discussd and need other options for their mental health. Individuals will have to sign-up to post on the site. the main goal of the website is for individuals to find support and be able to relate to topics, or help create a new topic, and provide support back to other users on the site. The overall goal is to increase community mental health and awareness.
+Project 2 brings our team to create a social media board called Group Mentality. Just as it sounds our site is for individuals to come and meet as a group and discuss issues that they may be having in their personal lives. There are also specific websites for indivuals to visit if they feel that they cannot relate to any of the issues being discussd and need other options for their mental health. Individuals will have to sign-up to post on the site. the main goal of the website is for individuals to find support and be able to relate to topics, or help create a new topics, and provide support back to other users on the site. The overall goal is to increase community mental health and awareness.
 #### Technologies
 - HTML
 - CSS
@@ -59,11 +59,14 @@ Project 2 brings our team to create a social media board called Group Mentality.
 
 ---
 ## Credits
-- [Materialize.com](https://materializecss.com/)
-- [NASA Open APIs](https://api.nasa.gov/)
+- [Heroku](https://heroku.com/)
+- [Insomnia](https://insomnia.rest/)
 - [JQuery CDN & API Documentation](https://code.jquery.com/)
-- [FontAwesome](https://fontawesome.com/)
-- [GoogleFont](https://fonts.google.com/)  
+- [MySQL](https://mysql.com/)
+- [Node](https://node.js.org/)
+- [npm](https://npm.js.com/)
+- [GreenSock](https://greensock.com/)
+- [Bootstrap](https://getbootstrap.com/)
 
 #### License ####
 This is free and unencumbered software released into the public domain.

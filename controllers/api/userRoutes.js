@@ -21,7 +21,6 @@ router.post('/', async (req, res) => {
   }
 });
 
-//* this works except for the moderator stuff that's commented out
 // route for '/api/users/login'
 router.post('/login', async (req, res) => {
   try {
