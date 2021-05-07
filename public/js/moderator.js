@@ -67,7 +67,7 @@ deleteUserPost = async (event) => {
         });
 
         if (response.ok) {
-            document.location.replace('/moderator');
+            // document.location.replace('/moderator');
         } else {
             alert('Failed to delete user\'s post');
         }
@@ -75,9 +75,8 @@ deleteUserPost = async (event) => {
     console.log('delete button clicked')
 };
 
-// if (document.querySelector('.newApprovedUserPostSubmit')) {
-    document.querySelector('#newApprovedUserPostSubmit').addEventListener('click', newApprovedUserPost);
-// };
+document.querySelector('#newApprovedUserPostSubmit').addEventListener('click', deleteUserPost);
+document.querySelector('#newApprovedUserPostSubmit').addEventListener('click', newApprovedUserPost);
 
 if (document.querySelector('.user-post-list')) {
     document.querySelector('.open-btn').addEventListener('click', getSingleUserPost);

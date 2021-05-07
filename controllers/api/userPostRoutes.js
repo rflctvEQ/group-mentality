@@ -10,9 +10,7 @@ const modAuth = require('../../utils/modAuth');
 
 //* this one works!
 // creates UserPosts 
-router.post('/', 
-// withAuth, 
-async (req, res) => {
+router.post('/', withAuth, async (req, res) => {
   // console.log('==========');
   // console.log(req.body);
 
@@ -31,9 +29,7 @@ async (req, res) => {
 // TODO: this should be something only Moderators can do (withAuth needs to be changed)
 //* but otherwise, this one works!!
 // deletes UserPosts
-router.delete('/:id', 
-// modAuth, 
-async (req, res) => {
+router.delete('/:id', modAuth, async (req, res) => {
   try {
     const newPost = await UserPost.destroy({
       where: {
