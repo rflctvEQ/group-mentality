@@ -32,6 +32,13 @@
                   <a href="/login" class="nav-link">Login <span class="sr-only">(current)</span></a>
                   {{/if}}
                 </li>
+                <li class="nav-item">
+                  {{#if logged_in_moderator}}
+                  <a class="nav-link" id="Mod_page" href="">Moderator Home <span class="sr-only">(current)</span></a>
+                  {{else}}
+                  <a href="/login" class="nav-link">Moderator Home <span class="sr-only">(current)</span></a>
+                  {{/if}}
+                </li>
                 <li class="nav-item dropdown">
                   <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                     Resources
