@@ -69,7 +69,7 @@ deleteUserPost = async (event) => {
         if (response.ok) {
             // document.location.replace('/moderator');
         } else {
-            alert('Failed to delete user\'s post');
+            alert('You are not authorized to create/delete posts from this page.');
         }
     }
     console.log('delete button clicked')
