@@ -1,17 +1,25 @@
-{{!-- 
-Not full HTML document -- just used for generating: 
 
-Contains greeting and boiler plate post code
+{{#each posts as |post|}}
+<div class="card" style="width: vw -50px; ;">
 
-we'll have an "each" statement that will generate our posts 
+    <div class="card-body">
+        <h3 class="card-title">{{post.postTitle}}</h3>
+        <h6>Created: {{format_date post.dateCreated}}</h6>
+        <p class="card-text">
+        <div class="card" style="width: vw -50px;;">
+            <div class="card-body">
+                <h5 class="card-title">From Anonymous:</h5>
+                <p class="card-text">{{post.postContent}}</p>
+            </div>
+        </div>
+        </p>
+        <h6 class="card-title">Moderator response to Anonymous:</h6>
+        <p class="card-text">{{post.responseContent}}</p>
+        {{!-- <a href="#" class="btn btn-primary">Back to top</a> --}}
+    </div>
+</div>
+{{/each}}
 
- --}}
- <!DOCTYPE html>
-<html>
-<head>
+<a href="#" class="btn btn-sticky">Back to top</a>
 
-</head>
-<body>
-    this is an html file
-</body>
-</html>
+<script src="/js/homepage.js"></script>

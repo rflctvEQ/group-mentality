@@ -2,11 +2,12 @@
 
 const router = require('express').Router();
 const { Moderator, ApprovedUserPost, UserPost } = require('../../models');
-const withAuth = require('../../utils/auth');
+const modAuth = require('../../utils/modAuth');
 const { route } = require('./userRoutes');
 
 // route for '/api/moderator/'
-// this isn't necessary for MVP
+//* this isn't necessary for MVP
+// creates new Moderator 
 // router.post('/', withAuth, async (req, res) => {
 //   try {
 //     const newModerator = await Moderator.create({
@@ -21,7 +22,8 @@ const { route } = require('./userRoutes');
 // });
 
 // route for '/api/moderator/:id'
-// not necessary for MVP
+//* not necessary for MVP
+// deletes Moderator by id
 // router.delete('/:id', withAuth, async (req, res) => {
 //   try {
 //     const moderatorData = await Moderator.destroy({
@@ -128,7 +130,7 @@ router.post('/login', async (req, res) => {
 
 //* this works!
 // routing for creating new ApprovedUserPost
-router.post('/', withAuth, async (req, res) => {
+router.post('/', modAuth, async (req, res) => {
   try {
     const newApprovedUserPost = await ApprovedUserPost.create({
       ...req.body,
@@ -141,9 +143,43 @@ router.post('/', withAuth, async (req, res) => {
   }
 });
 
+//* this works (i think?)
+// route for '/api/users/login'
+router.post('/login', async (req, res) => {
+  try {
+    const moderatorData = await Moderator.findOne({ where: { email: req.body.email }});
+
+    if (!moderatorData) {
+      res
+        .status(400)
+        .json({ message: 'Incorrect moderator email or password, please try again.'})
+      return;
+    };
+
+    const validModeratorPassword = await moderatorData.checkPassword(req.body.password);
+
+    if (!validModeratorPassword) {
+      res
+        .status(400)
+        .json({ message: 'Incorrect moderator email or password, please try again' });
+        return;
+    }
+
+      req.session.save(() => {
+        req.session.moderatorId = moderatorData.id;
+        req.session.logged_in = true;
+        
+        res.json({ moderator: moderatorData, message: 'Welcome, moderator. You are now logged in!' });
+      });
+
+  } catch (err) {
+    res.status(400).json(err);
+  }
+});
+
 //* this works!
-// routing for deleting user posts
-router.delete('/:id', withAuth, async (req, res) => {
+// routing for deleting user posts 
+router.delete('/:id', modAuth, async (req, res) => {
   console.log('===========');
   console.log(req);
   try {
