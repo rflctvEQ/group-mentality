@@ -1,4 +1,4 @@
-// app functionality -- Erick's stuff
+
 newUserPost = async (event) => {
     event.preventDefault();
 
