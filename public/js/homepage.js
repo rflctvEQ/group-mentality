@@ -1,3 +1,5 @@
+// TODO: render moderator home button only if moderator authentication
+
 // app functionality -- Erick's stuff
 newUserPost = async (event) => {
     event.preventDefault();
