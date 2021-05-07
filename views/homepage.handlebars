@@ -1,13 +1,13 @@
 
 <div>
     <textbox id="anonymous" span contenteditable="true" style="border solid 1px black; min-width:400px; min-height:100px;">
-        <input id="" value="SUBJECT: "></input>
+        <input id="postTitle" value="SUBJECT: "></input>
         {{!-- <textarea id="placehoder: Type Post">Type Post</textarea> --}}
     </textbox>
 
-    <textarea id="textarea" span contenteditable="true" style="display: inline-block; border solid 1px black; min-width:600px; min-height:200px; background-color: aliceblue;"
+    <textarea id="postContent" span contenteditable="true" style="display: inline-block; border solid 1px black; min-width:600px; min-height:200px; background-color: aliceblue;"
         placeholder="Type Post" type="text"></textarea>
-    <input type="submit">
+    <input type="submit" class="send-post-btn">
 </div>
 
 {{#each posts as |post|}}

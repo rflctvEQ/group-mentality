@@ -22,12 +22,11 @@ router.post('/', withAuth, async (req, res) => {
 
     res.status(200).json(newPost);
   } catch (err) {
-    res.status(400).json(err);
+    res.status(400).send("User not logged in!");
   }
 });
 
-// TODO: this should be something only Moderators can do (withAuth needs to be changed)
-//* but otherwise, this one works!!
+//* this one works!!
 // deletes UserPosts
 router.delete('/:id', modAuth, async (req, res) => {
   try {
