@@ -20,6 +20,108 @@
     width: 20%;
 }
 
+.post-topic-title-div {
+    text-align: center; 
+    text-decoration: underline; 
+    padding-right: 32em;
+}
+
+.post-title-div {
+    padding-right: 15.5em;
+}
+
+#postTitle {
+    border: solid 1px black; 
+    width:350px; 
+    min-width:350px; 
+    height:30px; 
+    min-height:30px; 
+    background-color: aliceblue; 
+    margin: auto; 
+    display: block;
+}
+
+.post-message-div {
+    text-align: center; 
+    text-decoration: underline; 
+    padding-right :30.5em;
+}
+
+#postContent {
+    border: solid 1px black; 
+    min-width: 600px;
+    min-height: 200px; 
+    background-color: aliceblue; 
+    margin: auto; 
+    display: block;
+}
+
+.submit-btn-div {
+    text-align: center; 
+    margin-top: 5px; 
+    margin-bottom: 5px; 
+    padding-right: 29.5em;
+}
+
+.approved-user-post {
+
+}
+
+.user-post-div {
+
+}
+
+.review-title-div {
+    text-align: center; 
+    text-decoration: underline; 
+    font-size: 20px;
+}
+
+.post-item-div {
+    text-align: center;
+}
+
+.edit-subject-div {
+    text-align: center; 
+    text-decoration: underline; 
+    padding-right: 32em;
+}
+
+.edit-content-div {
+    text-align: center; 
+    text-decoration: underline; 
+    padding-right: 30.5em;
+}
+
+.your-response-div {
+    text-align: center; 
+    text-decoration: underline; 
+    padding-right: 30.5em;
+}
+
+#responseContent {
+    border: solid 1px black; 
+    min-width:600px; 
+    min-height:200px; 
+    background-color: aliceblue; margin:auto; display:block;
+}
+
+.post-delete-btn-div {
+    display: flex; 
+    flex-direction: row; 
+    justify-content: center;
+}
+
+.post-btn-div {
+    margin-top: 5px; 
+    margin-bottom: 5px;
+}
+
+.delete-btn-div {
+    margin-top: 5px; 
+    margin-bottom: 5px;
+}
+
 @media screen and (max-width:600px) {
     * {
         background-color:#F7E883;

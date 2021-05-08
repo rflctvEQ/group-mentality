@@ -1,20 +1,29 @@
 <div>
     <div>
-        <div style="text-align:center; text-decoration:underline; font-size:20px;">
-        <dt>
-	        <span id="caption_subject">Moderator: User posts to review:</span>
-        </dt>
-    </div>
-</div>
-
-{{#each post as |post|}}
-<a href="/moderator/{{post.id}}">
-    <br><div>
-        <div style="text-align:center;">
-            <h3 class="postTitle">User Post: {{post.title}} - <h4="userId">User ID: {{post.userId}}</h4>
+        <div class="review-title-div">
+            <dt>
+                <span id="caption_subject">User posts to review:</span>
+            </dt>
         </div>
-    </div></br>
-</a>
-{{/each}}
+    </div>
 
-<script src="/js/moderator.js"></script>
+    {{#each post as |post|}}
+    <a href="/moderator/{{post.id}}">
+        <br>
+        <div>
+            <div class="post-item-div">
+                <h3 class="postTitle">User Post: {{post.title}} - <h4="userId">User ID: {{post.userId}}</h4>
+            </div>
+
+            {{!-- TODO: I don't like the way .post-item-div is formatted above, and I'd like to eventually do it like it's done below:  --}}
+            {{!-- <div style="text-align: center;">
+                <h3 class="postTitle">User Post: {{post.title}} - </h3>
+                <h4 class="userId">User ID: {{post.userId}}</h4>
+            </div> --}}
+
+        </div>
+        </br>
+    </a>
+    {{/each}}
+
+    <script src="/js/moderator.js"></script>
