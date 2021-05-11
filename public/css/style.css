@@ -1,23 +1,68 @@
-/* Ellisa's style page  */
+/* variables */
+:root {
+    --main-background: #FFD2B3;
+    --card: #93ECF5;
+    --divider: #43A0A8;
+    --white-text: #ffffff;
+    --dark-text: #333333;
+    --red-accent: #f12400;
+}
+
 * {
-    background-color: #B8CDD1 ;
+    background-color: var(--main-background);
     box-sizing: border-box;
+    color: var(--divider);
+}
+
+.custom-navbar {
+    background-color: var(--divider);
+    color: var(--white-text) !important;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+}
+
+.navbar-div {
+    background-color: var(--divider);
+    color: var(--white-text) !important;
+}
+
+.custom-navbar-btn {
+    background-color: var(--divider) !important;
+}
+
+.custom-navbar-btn:active {
+    background-color: var(--card) !important;
+}
+
+.custom-dropdown li {
+    background-color: var(--divider);
+}
+
+.custom-jumbo-div {
+    padding-left: 0 !important;
+    padding-right: 0 !important;
+}
+
+.custom-jumbo {
+    background-color: inherit !important;
+    margin-bottom: 0 !important;
+}
+
+.custom-jumbo h1, .custom-jumbo p {
+    /* background-color: var(--white-text); */
+    color: var(--divider);
+    padding-left: 10px;
 }
 
 #jumbotron {
     font-family: 'Permanent Marker', cursive
 } 
 
-#home {
-    /* padding: 20px; */
-    /* float: left; */
+#home, #login {
     width: 20%;
 }
 
-#login {
-    /* padding: 20px; */
-    /* float: left; */
-    width: 20%;
+.user-form {
+    margin-bottom: 2rem;
 }
 
 .post-topic-title-div {
@@ -26,19 +71,33 @@
     padding-right: 32em;
 }
 
+#caption_subject {
+    color: var(--divider) !important;
+}
+
 .post-title-div {
     padding-right: 15.5em;
 }
 
-#postTitle {
-    border: solid 1px black; 
+#postTitle, #postContent {
+    /* border: solid 2px var(--divider); */
+    margin: auto;
+    display: block;
+    border: none;
+    border-radius: 5px;
+    background-color: var(--white-text);
+    color: var(--dark-text);
+}
+
+#postTitle::placeholder, #postContent::placeholder {
+    color: var(--dark-text);
+}
+
+#postTitle { 
     width:350px; 
     min-width:350px; 
     height:30px; 
     min-height:30px; 
-    background-color: aliceblue; 
-    margin: auto; 
-    display: block;
 }
 
 .post-message-div {
@@ -47,13 +106,9 @@
     padding-right :30.5em;
 }
 
-#postContent {
-    border: solid 1px black; 
+#postContent { 
     min-width: 600px;
     min-height: 200px; 
-    background-color: aliceblue; 
-    margin: auto; 
-    display: block;
 }
 
 .submit-btn-div {
@@ -63,12 +118,29 @@
     padding-right: 29.5em;
 }
 
-.approved-user-post {
+.send-post-btn {
+    background-color: var(--divider) !important;
+    border: none !important;
+}
 
+.send-post-btn:active {
+    background-color: var(--card);
+}
+
+.approved-user-post {
+    border: none !important;
+    border-bottom: 2px solid var(--dark-text) !important;
+    margin-top: 1rem;
+}
+
+.moderator-response {
+    margin-bottom: 2rem !important;
 }
 
 .user-post-div {
-
+    padding: 0 !important;
+    margin: .15rem 1.25rem 1.25rem -1.25rem !important;
+    border: none !important;
 }
 
 .review-title-div {
@@ -103,7 +175,9 @@
     border: solid 1px black; 
     min-width:600px; 
     min-height:200px; 
-    background-color: aliceblue; margin:auto; display:block;
+    background-color: aliceblue; 
+    margin: auto; 
+    display: block;
 }
 
 .post-delete-btn-div {
@@ -122,11 +196,36 @@
     margin-bottom: 5px;
 }
 
-@media screen and (max-width:600px) {
-    * {
-        background-color:#F7E883;
+@media screen and (max-width: 900px) {
+    .custom-dropdown li {
+        padding-left: 10px;
     }
 
+    .user-form {
+        text-align: center;
+        justify-content: center;
+    }
+
+    #postTitle {
+        min-width: 0;
+        width: 300px;
+        display: inline-block;
+        margin-left: auto;
+        margin-right: auto;
+    }
+
+    #postContent {
+        min-width: 300px;
+    }
+
+    .post-topic-title-div, .post-title-div, .post-message-div, .submit-btn-div {
+        padding-right: 0;
+        margin-bottom: 5px;
+    }
+
+}
+
+@media screen and (max-width: 600px) {
     #btn-sticky {
         background-color: #F7E883;
         font-size: large;
@@ -134,12 +233,10 @@
     }
 
     #textarea {
-    background-color: aliceblue;
-    border: black;
+
     }
 
     textarea {
-        background-color:cornflowerblue;
         box-sizing: content-box;
         size: 100px;
     }

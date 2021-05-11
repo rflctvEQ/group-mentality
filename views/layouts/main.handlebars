@@ -16,55 +16,55 @@
 
 <body>
 
+
+  <nav class="navbar navbar-expand-lg navbar-light custom-navbar">
+    <a class="navbar-brand" href="#"></a>
+    <button class="navbar-toggler custom-navbar-btn" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
+      aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+
+    <div class="collapse navbar-collapse navbar-div" id="navbarSupportedContent">
+      <ul class="navbar-nav mr-auto custom-dropdown">
+        <li class="nav-item active">
+          <a class="nav-link" href="/">Home <span class="sr-only">(current)</span></a>
+        </li>
+        <li class="nav-item">
+          {{#if logged_in}}
+          <a class="nav-link" id="logout" href="">Logout <span class="sr-only">(current)</span></a>
+          {{else}}
+          <a href="/login" class="nav-link">Login <span class="sr-only">(current)</span></a>
+          {{/if}}
+        </li>
+        <li class="nav-item">
+          {{!-- {{#if logged_in_moderator}} --}}
+          <a class="nav-link" id="mod_page" href="/moderator">Moderator Home <span
+              class="sr-only">(current)</span></a>
+          {{!-- {{else}}
+          <a class="nav-link" href="/">Moderator Home <span class="sr-only">(current)</span></a> --}}
+          {{!-- {{/if}} --}}
+        </li>
+        <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown"
+            aria-haspopup="true" aria-expanded="false">
+            Resources
+          </a>
+          <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+            <a class="dropdown-item" href="https://suicidepreventionlifeline.org/">Suicide Prevention</a>
+            <a class="dropdown-item"
+              href="https://www.thetrevorproject.org/?gclid=Cj0KCQjw4cOEBhDMARIsAA3XDRghSDJe72G2eFV2dFmhkBqm2JFxPa_kX0_q8w1SEJ78pQFkQjjHBAAaAqsrEALw_wcB">LGBTQ</a>
+            <a class="dropdown-item" href="https://www.veteranscrisisline.net/">Veterans</a>
+            <a class="dropdown-item" href="https://www.samhsa.gov/find-help/national-helpline">Grieving</a>
+            <a class="dropdown-item" href="https://www.niaaa.nih.gov/">Substance Abuse</a>
+          </div>
+        </li>
+        </li>
+      </ul>
+    </div>
+  </nav>
   <header>
-    <nav class="navbar navbar-expand-lg navbar-light bg-light">
-      <a class="navbar-brand" href="#"></a>
-      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
-        aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-        <span class="navbar-toggler-icon"></span>
-      </button>
-
-      <div class="collapse navbar-collapse" id="navbarSupportedContent">
-        <ul class="navbar-nav mr-auto">
-          <li class="nav-item active">
-            <a class="nav-link" href="/">Home <span class="sr-only">(current)</span></a>
-          </li>
-          <li class="nav-item">
-            {{#if logged_in}}
-            <a class="nav-link" id="logout" href="">Logout <span class="sr-only">(current)</span></a>
-            {{else}}
-            <a href="/login" class="nav-link">Login <span class="sr-only">(current)</span></a>
-            {{/if}}
-          </li>
-          <li class="nav-item">
-            {{!-- {{#if logged_in_moderator}} --}}
-            <a class="nav-link" id="mod_page" href="/moderator">Moderator Home <span
-                class="sr-only">(current)</span></a>
-            {{!-- {{else}}
-            <a class="nav-link" href="/">Moderator Home <span class="sr-only">(current)</span></a> --}}
-            {{!-- {{/if}} --}}
-          </li>
-          <li class="nav-item dropdown">
-            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown"
-              aria-haspopup="true" aria-expanded="false">
-              Resources
-            </a>
-            <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-              <a class="dropdown-item" href="https://suicidepreventionlifeline.org/">Suicide Prevention</a>
-              <a class="dropdown-item"
-                href="https://www.thetrevorproject.org/?gclid=Cj0KCQjw4cOEBhDMARIsAA3XDRghSDJe72G2eFV2dFmhkBqm2JFxPa_kX0_q8w1SEJ78pQFkQjjHBAAaAqsrEALw_wcB">LGBTQ</a>
-              <a class="dropdown-item" href="https://www.veteranscrisisline.net/">Veterans</a>
-              <a class="dropdown-item" href="https://www.samhsa.gov/find-help/national-helpline">Grieving</a>
-              <a class="dropdown-item" href="https://www.niaaa.nih.gov/">Substance Abuse</a>
-            </div>
-          </li>
-          </li>
-        </ul>
-      </div>
-    </nav>
-
-    <div class="container vw-100">
-      <div class="jumbotron header-effect">
+    <div class="container vw-100 custom-jumbo-div">
+      <div class="jumbotron header-effect custom-jumbo">
         <h1>Group Mentality</h1>
         <p>A different kind of social media with your head in mind.
           An advice column with some extra support.
