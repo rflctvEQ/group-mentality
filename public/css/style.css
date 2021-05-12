@@ -1,6 +1,7 @@
 /* variables */
 :root {
-    --main-background: #FFD2B3;
+    /* --main-background: #FFD2B3; */
+    --main-background: #dddddd;
     --card: #93ECF5;
     --divider: #43A0A8;
     --white-text: #ffffff;
@@ -27,10 +28,12 @@
 
 .custom-navbar-btn {
     background-color: var(--divider) !important;
+    box-shadow: .5px .5px .5px .5px var(--dark-text);
 }
 
 .custom-navbar-btn:active {
     background-color: var(--card) !important;
+    box-shadow: none;
 }
 
 .custom-dropdown li {
@@ -53,6 +56,11 @@
     padding-left: 10px;
 }
 
+.custom-jumbo p {
+    padding-bottom: 3rem;
+    border-bottom: 5px dotted var(--red-accent);
+}
+
 #jumbotron {
     font-family: 'Permanent Marker', cursive
 } 
@@ -67,12 +75,14 @@
 
 .post-topic-title-div {
     text-align: center; 
-    text-decoration: underline; 
+    /* text-decoration: underline; */
     padding-right: 32em;
 }
 
 #caption_subject {
     color: var(--divider) !important;
+    font-size: 1.25rem;
+    /* padding-left: 1.25rem; */
 }
 
 .post-title-div {
@@ -87,6 +97,8 @@
     border-radius: 5px;
     background-color: var(--white-text);
     color: var(--dark-text);
+    box-shadow: 1px 1px 1px 1px var(--dark-text);
+    margin-bottom: 10px;
 }
 
 #postTitle::placeholder, #postContent::placeholder {
@@ -102,13 +114,14 @@
 
 .post-message-div {
     text-align: center; 
-    text-decoration: underline; 
+    /* text-decoration: underline;  */
     padding-right :30.5em;
 }
 
 #postContent { 
     min-width: 600px;
     min-height: 200px; 
+    margin-bottom: 1.5rem;
 }
 
 .submit-btn-div {
@@ -121,6 +134,7 @@
 .send-post-btn {
     background-color: var(--divider) !important;
     border: none !important;
+    box-shadow: .5px .5px .5px .5px var(--dark-text);
 }
 
 .send-post-btn:active {
@@ -129,7 +143,7 @@
 
 .approved-user-post {
     border: none !important;
-    border-bottom: 2px solid var(--dark-text) !important;
+    border-bottom: 2px solid var(--red-accent) !important;
     margin-top: 1rem;
 }
 
