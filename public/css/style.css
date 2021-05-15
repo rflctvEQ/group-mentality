@@ -7,6 +7,7 @@
     --white-text: #ffffff;
     --dark-text: #333333;
     --red-accent: #f12400;
+    --shadow: #888888;
 }
 
 * {
@@ -69,6 +70,7 @@
     width: 20%;
 }
 
+/** Homepage */
 .user-form {
     margin-bottom: 2rem;
 }
@@ -97,7 +99,7 @@
     border-radius: 5px;
     background-color: var(--white-text);
     color: var(--dark-text);
-    box-shadow: 1px 1px 1px 1px var(--dark-text);
+    box-shadow: 1px 1px 1px 1px var(--shadow);
     margin-bottom: 10px;
 }
 
@@ -134,7 +136,7 @@
 .send-post-btn {
     background-color: var(--divider) !important;
     border: none !important;
-    box-shadow: .5px .5px .5px .5px var(--dark-text);
+    box-shadow: .5px .5px .5px .5px var(--shadow);
 }
 
 .send-post-btn:active {
@@ -156,6 +158,36 @@
     margin: .15rem 1.25rem 1.25rem -1.25rem !important;
     border: none !important;
 }
+
+.sticky-btn {
+    display: none;
+    background-color: var(--divider) !important;
+    font-size: large !important;
+    position: fixed;
+    bottom: 20px;
+    left: 30px;
+    cursor: pointer;
+    padding: 10px;
+    border-radius: 15px;
+    color: var(--white-text);
+    transition: .5s
+}
+
+.sticky-btn a {
+    text-decoration: none;
+}
+
+.sticky-btn:hover {
+    background-color: var(--card) !important;
+    color: var(--white-text);
+    text-decoration: none;
+}
+
+/** Login/Signup page */
+
+/** Moderator Response Page */ 
+
+/** Moderator Homepage */
 
 .review-title-div {
     text-align: center; 
@@ -240,12 +272,6 @@
 }
 
 @media screen and (max-width: 600px) {
-    #btn-sticky {
-        background-color: #F7E883;
-        font-size: large;
-        position: sticky;
-    }
-
     #textarea {
 
     }
