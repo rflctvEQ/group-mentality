@@ -46,7 +46,7 @@ gsap.from(".user-form", {
 });
 
 //Scroll-to-top button
-mybutton = document.getElementsByClassName('sticky-btn')[0];
+mybutton = document.getElementsByClassName('fixed-btn')[0];
 
 // When the user scrolls down 20px from the top of the document, show the button
 window.onscroll = function() {

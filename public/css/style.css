@@ -10,6 +10,11 @@
     --shadow: #888888;
 }
 
+::selection {
+    background-color: var(--card);
+    color: var(--red-accent);
+}
+
 * {
     background-color: var(--main-background);
     box-sizing: border-box;
@@ -29,12 +34,14 @@
 
 .custom-navbar-btn {
     background-color: var(--divider) !important;
-    box-shadow: .5px .5px .5px .5px var(--dark-text);
+    border-radius: 8px !important;
+    border: none !important;
+    /* box-shadow: .25px .25px .25px .25px var(--dark-text); */
 }
 
 .custom-navbar-btn:active {
     background-color: var(--card) !important;
-    box-shadow: none;
+    border: none !important;
 }
 
 .custom-dropdown li {
@@ -70,6 +77,11 @@
     width: 20%;
 }
 
+footer {
+    text-align: center;
+    padding: 2.5rem;
+}
+
 /** Homepage */
 .user-form {
     margin-bottom: 2rem;
@@ -81,10 +93,10 @@
     padding-right: 32em;
 }
 
-#caption_subject {
+.caption_subject {
     color: var(--divider) !important;
     font-size: 1.25rem;
-    /* padding-left: 1.25rem; */
+    padding-right: 1.25rem;
 }
 
 .post-title-div {
@@ -99,7 +111,7 @@
     border-radius: 5px;
     background-color: var(--white-text);
     color: var(--dark-text);
-    box-shadow: 1px 1px 1px 1px var(--shadow);
+    box-shadow: .5px .5px .5px .5px var(--shadow);
     margin-bottom: 10px;
 }
 
@@ -130,7 +142,7 @@
     text-align: center; 
     margin-top: 5px; 
     margin-bottom: 5px; 
-    padding-right: 29.5em;
+    padding-right: 32em;
 }
 
 .send-post-btn {
@@ -159,7 +171,7 @@
     border: none !important;
 }
 
-.sticky-btn {
+.fixed-btn {
     display: none;
     background-color: var(--divider) !important;
     font-size: large !important;
@@ -173,17 +185,61 @@
     transition: .5s
 }
 
-.sticky-btn a {
+.fixed-btn a {
     text-decoration: none;
 }
 
-.sticky-btn:hover {
+.fixed-btn:hover {
     background-color: var(--card) !important;
     color: var(--white-text);
     text-decoration: none;
 }
 
 /** Login/Signup page */
+.login-div, .signup-div {
+    margin-left: 3rem;
+    margin-bottom: 3rem;
+}
+
+.email-declaration, .password-declaration, .name-declaration {
+    font-weight: 400;
+}
+
+#email-login, #email-signup {
+    width: 15rem;
+    background-color: var(--white-text);
+    border: none;
+    border-radius: 5px;
+    box-shadow: .5px .5px .5px .5px var(--shadow);
+
+}
+
+#password-login, #password-signup {
+    width: 13rem;
+    background-color: var(--white-text);
+    border: none;
+    border-radius: 5px;
+    box-shadow: .5px .5px .5px .5px var(--shadow);
+}
+
+#name-signup {
+    width: 14.75rem;
+    background-color: var(--white-text);
+    border: none;
+    border-radius: 5px;
+    box-shadow: .5px .5px .5px .5px var(--shadow);
+}
+
+.moderator-check {
+    margin-bottom: 15px;
+}
+
+.login-btn, .signup-btn {
+    background-color: var(--divider) !important;
+    color: var(--white-text) !important;
+    border: none !important;
+}
+
 
 /** Moderator Response Page */ 
 
@@ -267,6 +323,10 @@
     .post-topic-title-div, .post-title-div, .post-message-div, .submit-btn-div {
         padding-right: 0;
         margin-bottom: 5px;
+    }
+
+    .fixed-btn {
+        left: 10px;
     }
 
 }
