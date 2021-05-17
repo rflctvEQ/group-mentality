@@ -1,52 +1,36 @@
-# README-Group Mentaility
+# Group Mentality
 
-![Dashboard Image](screenshot\homepage-screenshot.jpg)
-> [README Group Mentality]()
+[Click here to visit the site](https://protected-waters-68869.herokuapp.com/)
+
+![Dashboard Image](screenshot/group-mentality.png)
 ---
 ### Table of Contents
 - [Descritption](#description)
-- [How To Use](#how-to-use)
 - [Technologies](#technologies)
 - [Author Info](#author-info)
-- [Credits](#credits)
 - [License](#license) 
 
 ---
 ## Description
-Project 2 brings our team to create a social media board called Group Mentality. Just as it sounds our site is for individuals to come and meet as a group and discuss issues that they may be having in their personal lives. There are also specific websites for indivuals to visit if they feel that they cannot relate to any of the issues being discussd and need other options for their mental health. Individuals will have to sign-up to post on the site. the main goal of the website is for individuals to find support and be able to relate to topics, or help create a new topics, and provide support back to other users on the site. The overall goal is to increase community mental health and awareness.
-#### Technologies
+Group Mentality is a full-stack forum application centered around promoting mental health. Users are able to read anonymous interactions between other users and mental health experts, and they are able to send in their own questions and experiences to receive advice from mental health experts. These experts (i.e. moderators) are able to see a list of pending user questions, edit and respond to them, or delete them if a similar interaction has already taken place on the site. 
+
+### Future Development
+In the future, Group Mentality will allow for a richer interactive experience between users and mental health experts (like notifications, the ability for moderators to tell users why their post has been rejected, etc.), and we'd like to provide users and moderators the ability to comment on forum posts. In the future, we'd also like to exchange the browser alerts for modals.
+
+## Technologies
 - HTML
 - CSS
 - JavaScript
-- JQuery CDN & API Documentation
-- VS Code
-- GitHub
-- GitBash
 - Bootstrap
 - Heroku
-- MySQL Workbench
+- MySQL
+- Sequelize
 - Insomnia
-- GreenSock
+- GreenSock Animation Platform (GSAP)
 - Express
 - Node
-- Sequelize
-- NPM
   
-[Back to Top](#project-2-group-mentality)
-
----
-## How to Use
-- Click on "Sign-Up".
-- Enter your username, email address and password.
-- You are then redirected to the homepage.
-- You can interact with the site in multiple ways.
-    1) You can create a post.
-    2) Interact with other users.
-    3) You can reposnd to user posts.
-    4) You can access various websites related to mental heath and overall awareness. 
-- Moderators will have separate login functions to approve and delete post.
-  
-[Back to Top](#project-2-group-mentality)
+[Back to Top](#group-mentality)
 
 ---
 ## Author Info
@@ -55,20 +39,11 @@ Project 2 brings our team to create a social media board called Group Mentality.
 - Erick Michaelson - [https://github.com/erickmichaelson](https://ca.slack-edge.com/T01J4FQGGA2-U01J1C23CF9-24b07fccebf6-512)
 - Jamie Rippee - [https://github.com/jamtrip7](https://ca.slack-edge.com/T01J4FQGGA2-U01KM5DLZH6-1546fc156004-512)
   
-[Back to Top](#project-2-group-mentality)
+[Back to Top](#group-mentality)
 
 ---
-## Credits
-- [Heroku](https://heroku.com/)
-- [Insomnia](https://insomnia.rest/)
-- [JQuery CDN & API Documentation](https://code.jquery.com/)
-- [MySQL](https://mysql.com/)
-- [Node](https://node.js.org/)
-- [npm](https://npm.js.com/)
-- [GreenSock](https://greensock.com/)
-- [Bootstrap](https://getbootstrap.com/)
 
-#### License ####
+## License ####
 This is free and unencumbered software released into the public domain.
 Anyone is free to copy, modify, publish, use, compile, sell, or
 distribute this software, either in source code form or as a compiled
@@ -90,7 +65,4 @@ ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR
 OTHER DEALINGS IN THE SOFTWARE.
 For more information, please refer to <https://unlicense.org>
    
-[Back to Top](#project-2-group-mentality)
-
----
-Made by Jamie Rippee / Ian Everitt / Ellisa Issa / Erick Michaelson!! :sunglasses:
+[Back to Top](#group-mentality)
