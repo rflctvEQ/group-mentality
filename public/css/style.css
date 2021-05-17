@@ -6,13 +6,14 @@
     --divider: #43A0A8;
     --white-text: #ffffff;
     --dark-text: #333333;
-    --red-accent: #f12400;
+    /* --red-accent: #f12400; */
+    --black-accent: #242424;
     --shadow: #888888;
 }
 
 ::selection {
     background-color: var(--card);
-    color: var(--red-accent);
+    color: var(--black-accent);
 }
 
 * {
@@ -66,7 +67,7 @@
 
 .custom-jumbo p {
     padding-bottom: 3rem;
-    border-bottom: 5px dotted var(--red-accent);
+    border-bottom: 5px dotted var(--black-accent);
 }
 
 #jumbotron {
@@ -157,7 +158,7 @@ footer {
 
 .approved-user-post {
     border: none !important;
-    border-bottom: 2px solid var(--red-accent) !important;
+    border-bottom: 2px solid var(--black-accent) !important;
     margin-top: 1rem;
 }
 
